@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我喜爱的电影和小说推荐</title>
+
+    <link rel="icon" href="../../img/me.png">
+    <link rel="shortcut icon" href="../../img/me.png">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- fileinput -->
+    <link href="../../css/fileinput.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="../../font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/default.css">
+    <link rel="stylesheet" type="text/css" href="../../css/recom.css" />
+
+
+    <script src="../../js/recomjs/modernizr-custom.js"></script>
+    <!--[if IE]>
+    <script src="http://libs.baidu.com/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+    <style>
+        .tags{ font-family: 微软雅黑}
+        .arti {font-family: 微软雅黑}
+        a {font-family: 微软雅黑}
+        #actionG{
+            left: 40px;
+        }
+        .current-serach{
+            font-size: 16px;
+        }
+        .htmleaf-demos{
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+        #article{
+            height: 200px;
+        }
+    </style>
+</head>
+<body class="demo-2">
+<div class="container">
+    <header class="htmleaf-header">
+        <h1>我喜爱的电影和小说推荐<span>My favorite movies and fictions</span></h1>
+
+        <nav class="htmleaf-demos">
+            <a class="current-serach" id="movieR">电影推荐</a>
+            <a class="current-serach" id="ficR">小说推荐</a>
+        </nav>
+    </header>
+    <div class="btn-group" id="actionG">
+        <button type="button" class="btn btn-default admin" data-toggle="modal" data-target="#myModal"  style="display: none"><i class="fa fa-plus-square fa-fw"></i>新增</button>
+        <button type="button" class="btn btn-default admin" style="display: none"><i class="fa fa-minus-square fa-fw"></i>删除</button>
+    </div>
+
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h3 class="modal-title" id="myModalLabel" align="center">
+                        <p style="color: black; font-family: 微软雅黑">新增推荐文章</p>
+                    </h3>
+                </div>
+                <div class="modal-body">
+                    <form id="addForm" class="bs-example bs-example-form" role="form" enctype="multipart/form-data">
+                        <div class="input-group" style="width: 566px;">
+                            <span class="input-group-addon">标题</span>
+                            <input type="text" id="title" name="title" class="form-control" placeholder="">
+                        </div>
+                        <div class="input-group col-lg-5" style="display: inline-table; margin-top: 10px;">
+                            <span class="input-group-addon">标签</span>
+                            <input type="text" id="remark" name="remark" class="form-control">
+                        </div>
+                        <div class="input-group col-lg-5" style="display: inline-table; margin-top: 10px;margin-left: 90px;">
+                            <span class="input-group-addon">类型</span>
+                            <input type="text" id="type"  name="type" class="form-control">
+                        </div>
+                        <div class="input-group" style="margin-top: 10px;">
+                            <span class="input-group-addon">正文</span>
+                            <!--<input type="text" id="article" name="articles" class="form-control">-->
+                            <textarea  id="article" name="articles" class="form-control"/></textarea>
+                        </div>
+                        <div class="input-group" style="width: 566px; margin-top: 10px;">
+                            <input id="fileup" name="fileup[]" type="file" class="file" multiple=true class="file-loading"/>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="addScores()">
+                        提交
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+    <div class="content">
+        <div class="grid">
+
+        </div>
+        <!-- /grid -->
+        <div class="preview">
+            <button class="action action--close"><i class="fa fa-times"></i><span class="text-hidden">Close</span></button>
+            <div class="description description--preview"></div>
+        </div>
+        <!-- /preview -->
+    </div>
+    <!-- /content -->
+
+</div>
+<!-- /container -->
+
+<script src="../../js/recomjs/imagesloaded.pkgd.min.js"></script>
+<script src="../../js/recomjs/masonry.pkgd.min.js"></script>
+<script src="../../js/recomjs/classie.js"></script>
+<script src="../../js/recomjs/main.js"></script>
+<script src="../../js/jquery-1.9.1.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/fileinput.min.js"></script>
+<script src="../../js/locales/zh.js" type="text/javascript"></script>
+<!-- common -->
+<script src="../../js/common.js"></script>
+<!-- config -->
+<script src="../../js/config.js"></script>
+<script>
+    function initMar() {
+        var support = { transitions: Modernizr.csstransitions },
+        // transition end event name
+                transEndEventNames = { 'WebkitTransition': 'webkitTransitionEnd', 'MozTransition': 'transitionend', 'OTransition': 'oTransitionEnd', 'msTransition': 'MSTransitionEnd', 'transition': 'transitionend' },
+                transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
+                onEndTransition = function( el, callback ) {
+                    var onEndCallbackFn = function( ev ) {
+                        if( support.transitions ) {
+                            if( ev.target != this ) return;
+                            this.removeEventListener( transEndEventName, onEndCallbackFn );
+                        }
+                        if( callback && typeof callback === 'function' ) { callback.call(this); }
+                    };
+                    if( support.transitions ) {
+                        el.addEventListener( transEndEventName, onEndCallbackFn );
+                    }
+                    else {
+                        onEndCallbackFn();
+                    }
+                };
+
+        var _a_  = null;
+        _a_ = new GridFx(document.querySelector('.grid'), {
+            imgPosition : {
+                x : -0.5,
+                y : 1
+            },
+            onOpenItem : function(instance, item) {
+                instance.items.forEach(function(el) {
+                    if(item != el) {
+                        var delay = Math.floor(Math.random() * 50);
+                        el.style.WebkitTransition = 'opacity .5s ' + delay + 'ms cubic-bezier(.7,0,.3,1), -webkit-transform .5s ' + delay + 'ms cubic-bezier(.7,0,.3,1)';
+                        el.style.transition = 'opacity .5s ' + delay + 'ms cubic-bezier(.7,0,.3,1), transform .5s ' + delay + 'ms cubic-bezier(.7,0,.3,1)';
+                        el.style.WebkitTransform = 'scale3d(0.1,0.1,1)';
+                        el.style.transform = 'scale3d(0.1,0.1,1)';
+                        el.style.opacity = 0;
+                    }
+                });
+                alert(item);
+            },
+            onCloseItem : function(instance, item) {
+                instance.items.forEach(function(el) {
+                    if(item != el) {
+                        el.style.WebkitTransition = 'opacity .4s, -webkit-transform .4s';
+                        el.style.transition = 'opacity .4s, transform .4s';
+                        el.style.WebkitTransform = 'scale3d(1,1,1)';
+                        el.style.transform = 'scale3d(1,1,1)';
+                        el.style.opacity = 1;
+
+                        onEndTransition(el, function() {
+                            el.style.transition = 'none';
+                            el.style.WebkitTransform = 'none';
+                        });
+                    }
+                });
+            }
+        });
+    };
+
+    $(document).ready(function(){
+        loadRecords();
+        judgeAuthority();
+    });
+
+    function loadRecords(type){
+        $.ajax({
+            type: "post",
+//			async: false,
+            url: urlConfig+"recommend/queryRecomInfo.action",
+            contentType:'application/json;charset=utf-8',
+            dataType:"json",
+            data:JSON.stringify({"type":type}),
+            success: function(data) {
+                $('.grid__item').remove();
+                for(var i=0; i<data.length; i++)
+                {
+                    // wrap content in jQuery object
+                    var $content = $("<div class='grid__item' data-size='1280x961'>"+
+                            "<a href='"+data[i].image+"'class='img-wrap'><img src='"+data[i].image+"'/>"+
+                            "<div class='description description--grid'>"+
+                            "<h3>"+data[i].title+"</h3>"+
+                            "<p class='arti'>"+data[i].article+" <em>&mdash; 韬</em>"+"</p>"+
+                            "<div class='details'>"+
+                            "<ul>"+
+                            "<li><i class='fa fa-hand-o-up' style='margin-right: 5px;color: #77d45b;'></i><span class='tags'>"+data[i].readTime+"</span></li>"+
+                            "<li><i class='fa fa-heart' style='margin-right: 5px;color: #77d45b;'></i><span class='tags'>"+data[i].admiration+"</span></li>"+
+                            "<li><i class='fa fa-th-list' style='margin-right: 5px;color: #77d45b;'></i><span class='tags'>"+data[i].remark+"</span></li>"+
+                            "</ul>"+
+                            "</div>"+
+                            "</div>"+
+                            "</a>"+
+                            "</div>");
+                    // add jQuery object
+                    $('.grid').append( $content );
+                }
+                initMar();
+                $(".original").attr("width","0");
+            }
+        });
+    };
+
+    $("#movieR").click(function () {
+        $(".current-serach").css("color","#77d45b");
+        $(this).css("color","white");
+        loadRecords(1);
+    })
+
+    $("#ficR").click(function () {
+        $(".current-serach").css("color","#77d45b");
+        $(this).css("color","white");
+        loadRecords(2);
+    })
+
+    //初始化fileinput控件（第一次初始化）
+    function initFileInput(ctrlName, uploadUrl) {
+        var control = $('#' + ctrlName);
+        control.fileinput({
+            language: 'zh', //设置语言
+            uploadUrl: uploadUrl, //上传的地址
+            uploadAsync:false,
+            allowedFileExtensions : ['jpg', 'png','gif'],//接收的文件后缀
+            showUpload: false,//是否显示上传按钮
+            maxFileCount: 1,
+            showPreview:true,
+            enctype: 'multipart/form-data',
+            showCaption: false,//是否显示标题
+            browseClass: "btn btn-primary", //按钮样式
+            previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+            uploadExtraData:function (previewId, index) {
+                var obj = {};
+                $('#addForm').find('input').each(function() {
+                    var id = $(this).attr('id'), val = $(this).val();
+                    obj[id] = val;
+                });
+                $('#addForm').find('textarea').each(function() {
+                    var id = $(this).attr('id'), val = $(this).val();
+                    obj[id] = val;
+                });
+                return obj;
+            }
+        });
+    }
+
+    //初始化fileinput
+    initFileInput("fileup", urlConfig+"recommend/addRecomInfo.action");
+
+    $("#fileup").on('filebatchuploadsuccess', function(event, data, previewId, index) {
+        $('#addForm').find('input').each(function() {
+            $(this).val("");
+        });
+        $('#fileup').fileinput('reset');
+        $("#myModal").modal("hide");
+    });
+
+    function addScores(){
+        $("#fileup").fileinput("upload");
+    }
+</script>
+</body>
+</html>
