@@ -44,7 +44,6 @@ public class CommentInfoLogic {
 			topicComResult.setCommentInfoList(list);
 			topicComResults.add(topicComResult);
 		}
-		System.out.println(111);
 		return topicComResults;
 	}
 
