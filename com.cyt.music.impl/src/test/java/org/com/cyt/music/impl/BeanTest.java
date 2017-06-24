@@ -10,38 +10,13 @@ import org.apache.commons.beanutils.BeanUtils;
 
 import bean.MusicInfoT;
 
-import com.cyt.music.interfaces.pojo.music.MusicInfo;
-
 public class BeanTest {
 	
 	public static void test1(){
-		MusicInfo info1=new MusicInfo();
-		MusicInfoT info2=new MusicInfoT();
-		info1.setAuthor("zzzz");
-		info1.setAlbum("ssssss");
-		info1.setTitle("ttttt");
-		
-		try {
-			BeanUtils.copyProperties(info2, info1);
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.err.println(info1);
-		System.err.println(info2);
+
 	}
 	
 	public static void test2() throws ClassNotFoundException{
-		Class<?> class1=Class.forName("com.cyt.music.interfaces.pojo.music.MusicInfo");
-		Class<MusicInfo> class2=MusicInfo.class;
-		MusicInfo info=new MusicInfo();
-		Class<?> class3=info.getClass();
-		System.err.println(class1);
-		System.err.println(class2);
-		System.err.println(class3);
 	}
 	
 	public static void test3(){
@@ -75,16 +50,7 @@ public class BeanTest {
 	}
 	
 	public static void test4() throws IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException{
-		MusicInfo ms1=new MusicInfo();
-		MusicInfo ms2=new MusicInfo();
-		ms1.setId(1);
-		ms1.setAlbum("aa");
-		ms1.setAuthor("bb");
-		ms1.setRemark("cc");
-		ms1.setImage("dd");
-		copyProperties(ms1,ms2);
-		System.err.println(ms1);
-		System.err.println(ms2);
+
 	}
 	
 	public static  Object copyProperties(Object source,Object target) throws IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException{

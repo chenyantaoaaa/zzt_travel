@@ -13,9 +13,6 @@
 		http://www.springframework.org/schema/tx 
 		http://www.springframework.org/schema/tx/spring-tx-3.1.xsd ">
 <!--<bean id="GuitaInfoService" class="com.cyt.music.impl.service.guita.GuitaInfoServiceImpl"/>-->
-<bean id="GuitaInfoService" class="com.cyt.music.impl.service.guita.GuitaInfoServiceImpl"/>
-<bean id="MusicInfoService" class="com.cyt.music.impl.service.music.MusicInfoServiceImpl"/>
-	<bean id="RecommonInfoService" class="com.cyt.music.impl.service.recommond.RecommonInfoServiceImpl"/>
-	<bean id="commentInfoService" class="com.cyt.music.impl.service.comment.CommentInfoServiceImpl"/>
-	<bean id="userService" class="com.cyt.music.impl.service.user.userServiceImpl"/>
+<bean id="userService" class="com.cyt.music.impl.service.user.userServiceImpl"/>
+<bean id="OrderInfoService" class="com.cyt.music.impl.service.order.OrderInfoServiceImpl"/>
 </beans>

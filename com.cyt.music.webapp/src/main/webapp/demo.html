@@ -18,25 +18,22 @@
 		function demoQuery(){
 				$.ajax({
 					type:'post',
-					url:urlConfig+"web/demo/requestJson.action",
+					url:"http://localhost:8080/"+"order/queryOrderInfo.action",
 					contentType:'application/json;charset=utf-8',
+					dataType:"json",
 					//数据格式是json串，商品信息
-					data:JSON.stringify([{username:"chen",userstatus:"2"},{username:"chen2",userstatus:"3"}]),
+					data:JSON.stringify({name:"chen",phone:"2"}),
 					success:function(data){//返回json结果
-						console.log(data);
-						console.log(data[0].username);
-						console.log($("input[name='username']"));
-						
-						$("input[name='username']").val(data[0].username);
-						$("input[name='userstatus']").val(data[0].userstatus);
+						$("input[name='name']").val(data[0].name);
+						$("input[name='phone']").val(data[0].phone);
 				}});
 		}
 		
 	</script>
 	</head>
 	<body>
-		<br>用户姓名<input type="text" name="username" id="username" value=""/></br>
-		<br>用户状态<input type="text" name="userstatus" id="userstatus" value="" /></br>
+		<br>用户姓名<input type="text" name="name" id="name" value=""/></br>
+		<br>用户状态<input type="text" name="phone" id="phone" value="" /></br>
 		<br><input type="button" name="btn" id="btn" value="取到数据" onclick="demoQuery()"/></br>
 	</body>
 </html>
