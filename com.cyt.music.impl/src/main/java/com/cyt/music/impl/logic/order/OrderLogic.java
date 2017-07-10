@@ -1,6 +1,6 @@
 package com.cyt.music.impl.logic.order;
 
-import com.cyt.music.impl.mapper.order.OrderInfoMapper;
+import com.cyt.music.impl.mapper.Order.OrderInfoMapper;
 import com.cyt.music.interfaces.pojo.order.OrderDto;
 import com.cyt.music.interfaces.pojo.order.OrderInfo;
 import org.springframework.beans.factory.annotation.Autowired;
