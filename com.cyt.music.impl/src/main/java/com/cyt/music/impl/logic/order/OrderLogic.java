@@ -19,4 +19,8 @@ public class OrderLogic {
     public List<OrderInfo> queryOrderInfo(OrderDto dto){
         return orderInfoMapper.queryOrderInfo(dto);
     }
+
+    public void addOrderInfo(OrderInfo dto) {
+        orderInfoMapper.insert(dto);
+    }
 }

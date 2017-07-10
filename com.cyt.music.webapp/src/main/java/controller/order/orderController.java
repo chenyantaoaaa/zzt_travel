@@ -3,7 +3,6 @@ package controller.order;
 import com.cyt.music.interfaces.pojo.common.PageResultForBootstrap;
 import com.cyt.music.interfaces.pojo.order.OrderDto;
 import com.cyt.music.interfaces.pojo.order.OrderInfo;
-import com.cyt.music.interfaces.pojo.recommond.RecommondInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,5 +28,10 @@ public class OrderController {
         PageResultForBootstrap pageResultForBootstrap = new PageResultForBootstrap();
         pageResultForBootstrap.setRows(list);
         return pageResultForBootstrap;
+    }
+
+    @RequestMapping(value = "/addOrderInfo")
+    public void addOrderInfo(@RequestBody OrderInfo dto) throws Exception {
+        orderInfoService.addOrderInfo(dto);
     }
 }

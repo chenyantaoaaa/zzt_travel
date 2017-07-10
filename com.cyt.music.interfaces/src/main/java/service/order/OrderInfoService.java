@@ -10,4 +10,6 @@ import java.util.List;
  */
 public interface OrderInfoService {
     public List<OrderInfo> queryOrderInfo(OrderDto dto) throws Exception;
+
+    public void addOrderInfo(OrderInfo dto) throws Exception;
 }

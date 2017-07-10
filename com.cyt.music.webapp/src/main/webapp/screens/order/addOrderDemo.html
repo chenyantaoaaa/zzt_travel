@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        #username{
+
+        }
+        #userstatus{
+
+        }
+    </style>
+    <!-- config -->
+    <script src="../../js/config.js"></script>
+    <script type="text/javascript" src="../../js/jquery-1.9.1.min.js" ></script>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function demoQuery(){
+            $.ajax({
+                type:'post',
+                url:"http://localhost:8080/"+"order/addOrderInfo.action",
+                contentType:'application/json;charset=utf-8',
+                dataType:"json",
+                //数据格式是json串，商品信息
+                data:JSON.stringify({name: $("input[name='name']").val(),
+                    phone: $("input[name='phone']").val(),
+                    email: $("input[name='email']").val(),
+                    roomType: $("input[name='roomType']").val(),
+                    personNum: $("input[name='personNum']").val(),
+                    target: $("input[name='target']").val(),
+                    moneySum: $("input[name='moneySum']").val(),
+                    passport: $("input[name='passport']").val(),
+                    }
+                ),
+                success:function(data){//返回json结果
+                }});
+        }
+
+    </script>
+</head>
+<body>
+<br>姓名<input type="text" name="name" id="name" value=""/></br>
+<br>电话<input type="text" name="phone" id="phone" value="" /></br>
+<br>邮箱<input type="text" name="email" id="email" value="" /></br>
+<br>房间类型<input type="text" name="roomType" id="roomType" value="" /></br>
+<br>参团人数<input type="text" name="personNum" id="personNum" value="" /></br>
+<br>目的地<input type="text" name="target" id="target" value="" /></br>
+<br>金额<input type="text" name="moneySum" id="moneySum" value="" /></br>
+<br>护照<input type="text" name="passport" id="passport" value="" /></br>
+<br><input type="button" name="btn" id="btn" value="提交数据" onclick="demoQuery()"/></br>
+</body>
+</html>

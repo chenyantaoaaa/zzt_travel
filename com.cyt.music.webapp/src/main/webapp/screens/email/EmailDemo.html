@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        #username{
+
+        }
+        #userstatus{
+
+        }
+    </style>
+    <!-- config -->
+    <script src="../../js/config.js"></script>
+    <script type="text/javascript" src="../../js/jquery-1.9.1.min.js" ></script>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function demoQuery(){
+            $.ajax({
+                type:'post',
+                url:"http://localhost:8080/"+"email/sendemail.action",
+                contentType:'application/json;charset=utf-8',
+                dataType:"json",
+                success:function(data){//返回json结果
+                }});
+        }
+
+    </script>
+</head>
+<body>
+    <input type="button" value="send" onclick="demoQuery()">
+</body>
+</html>

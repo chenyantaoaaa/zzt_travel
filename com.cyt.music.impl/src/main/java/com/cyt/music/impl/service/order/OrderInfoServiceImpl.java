@@ -21,4 +21,9 @@ public class OrderInfoServiceImpl implements OrderInfoService {
     public List<OrderInfo> queryOrderInfo(OrderDto dto) throws Exception {
         return orderLogic.queryOrderInfo(dto);
     }
+
+    @Override
+    public void addOrderInfo(OrderInfo dto) throws Exception {
+        orderLogic.addOrderInfo(dto);
+    }
 }
