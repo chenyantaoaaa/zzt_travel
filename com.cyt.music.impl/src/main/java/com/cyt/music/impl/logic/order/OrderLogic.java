@@ -1,8 +1,10 @@
 package com.cyt.music.impl.logic.order;
 
 import com.cyt.music.impl.mapper.Order.OrderInfoMapper;
+import com.cyt.music.impl.util.HttpUtil;
 import com.cyt.music.interfaces.pojo.order.OrderDto;
 import com.cyt.music.interfaces.pojo.order.OrderInfo;
+import org.apache.http.NameValuePair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -22,5 +24,11 @@ public class OrderLogic {
 
     public void addOrderInfo(OrderInfo dto) {
         orderInfoMapper.insert(dto);
+    }
+
+    public String getPayInfo(String url,List<NameValuePair> params) throws Exception{
+        String returnInfo = HttpUtil.requestByPostMethod(url,params).substring(0,4);
+        System.out.println("returnInfo==========="+returnInfo);
+        return returnInfo;
     }
 }

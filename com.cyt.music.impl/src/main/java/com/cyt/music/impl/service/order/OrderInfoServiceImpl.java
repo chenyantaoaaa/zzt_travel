@@ -3,6 +3,7 @@ package com.cyt.music.impl.service.order;
 import com.cyt.music.impl.logic.order.OrderLogic;
 import com.cyt.music.interfaces.pojo.order.OrderDto;
 import com.cyt.music.interfaces.pojo.order.OrderInfo;
+import org.apache.http.NameValuePair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.order.OrderInfoService;
@@ -25,5 +26,10 @@ public class OrderInfoServiceImpl implements OrderInfoService {
     @Override
     public void addOrderInfo(OrderInfo dto) throws Exception {
         orderLogic.addOrderInfo(dto);
+    }
+
+    @Override
+    public String getPayInfo(String url,List<NameValuePair> params) throws Exception{
+        return orderLogic.getPayInfo(url,params);
     }
 }

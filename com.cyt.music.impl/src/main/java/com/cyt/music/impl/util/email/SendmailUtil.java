@@ -62,7 +62,7 @@ public class SendmailUtil {
             // 邮件标题
             message.setSubject(headName);
             String content = sendText.toString();
-            // 邮件内容,也可以使纯文本"text/plain"
+            // 邮件内容,也可N以使纯文本"text/plain"
             message.setContent(content, "text/plain;charset=GBK");
             message.saveChanges();
             Transport transport = s.getTransport("smtp");

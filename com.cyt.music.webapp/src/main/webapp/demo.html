@@ -12,28 +12,63 @@
 		<!-- config -->
 		<script src="../../js/config.js"></script>
 		<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+		<script type="text/javascript" src="js/jquery.cookie.js" ></script>
 		<meta charset="UTF-8">
 		<title></title>
 	<script>
 		function demoQuery(){
 				$.ajax({
 					type:'post',
-					url:"http://localhost:8080/"+"order/queryOrderInfo.action",
+					url:"http://localhost:8080/"+"order/getPayInfo.action",
 					contentType:'application/json;charset=utf-8',
 					dataType:"json",
 					//数据格式是json串，商品信息
-					data:JSON.stringify({name:"chen",phone:"2"}),
+					data:JSON.stringify({amt:"10",cc:"EUR",item_name:"test物品",st:"Pending",tx:"9VS47105S28100744"}),
 					success:function(data){//返回json结果
-						$("input[name='name']").val(data[0].name);
-						$("input[name='phone']").val(data[0].phone);
+						alert(data.info);
 				}});
 		}
-		
+
+		$(document).ready(function () {
+			if(GetQueryString("tx")!=null){
+				demoQuery();
+			}
+			alert($.cookie("name"));
+			$("input[name='name']").val($.cookie("name"));
+			$("input[name='phone']").val($.cookie("phone"));
+		});
+
+		function demoQuery2(){
+			$.ajax({
+				type:'post',
+				url:"http://localhost:8080/"+"order/saveCustomInfo.action",
+				contentType:'application/json;charset=utf-8',
+				dataType:"json",
+				//数据格式是json串，商品信息
+				data:JSON.stringify({name:$("input[name='name']").val(),phone:$("input[name='phone']").val()}),
+				success:function(data){//返回json结果
+				}});
+		}
+
+		function GetQueryString(name)
+		{
+			var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if(r!=null)return  unescape(r[2]); return null;
+		}
+
+//		alert(GetQueryString("tx"));
+//		alert(GetQueryString("amt"));
+//		alert(GetQueryString("st"));
 	</script>
 	</head>
 	<body>
+		<!--<br>用户姓名<input type="text" name="name" id="name" value=""/></br>-->
+		<!--<br>用户状态<input type="text" name="phone" id="phone" value="" /></br>-->
+		<!--<br><input type="button" name="btn" id="btn" value="取到数据" onclick="demoQuery()"/></br>-->
+
 		<br>用户姓名<input type="text" name="name" id="name" value=""/></br>
 		<br>用户状态<input type="text" name="phone" id="phone" value="" /></br>
-		<br><input type="button" name="btn" id="btn" value="取到数据" onclick="demoQuery()"/></br>
+		<br><input type="button" name="btn" id="btn" value="保存" onclick="demoQuery2()"/></br>
 	</body>
 </html>

@@ -2,6 +2,7 @@ package service.order;
 
 import com.cyt.music.interfaces.pojo.order.OrderDto;
 import com.cyt.music.interfaces.pojo.order.OrderInfo;
+import org.apache.http.NameValuePair;
 
 import java.util.List;
 
@@ -12,4 +13,6 @@ public interface OrderInfoService {
     public List<OrderInfo> queryOrderInfo(OrderDto dto) throws Exception;
 
     public void addOrderInfo(OrderInfo dto) throws Exception;
+
+    public String getPayInfo(String url,List<NameValuePair> params) throws Exception;
 }
