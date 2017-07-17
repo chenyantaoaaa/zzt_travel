@@ -10,7 +10,7 @@
 			}
 		</style>
 		<!-- config -->
-		<script src="../../js/config.js"></script>
+		<script src="js/config.js"></script>
 		<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
 		<script type="text/javascript" src="js/jquery.cookie.js" ></script>
 		<meta charset="UTF-8">
@@ -19,13 +19,16 @@
 		function demoQuery(){
 				$.ajax({
 					type:'post',
-					url:"http://localhost:8080/"+"order/getPayInfo.action",
+					url:urlConfig+"order/getPayInfo.action",
 					contentType:'application/json;charset=utf-8',
 					dataType:"json",
 					//数据格式是json串，商品信息
-					data:JSON.stringify({amt:"10",cc:"EUR",item_name:"test物品",st:"Pending",tx:"9VS47105S28100744"}),
+					data:JSON.stringify({amt:GetQueryString("amt"),cc:GetQueryString("cc"),item_name:GetQueryString("item_name"),st:GetQueryString("st"),tx:GetQueryString("tx")}),
 					success:function(data){//返回json结果
 						alert(data.info);
+						if(data.info == "SUCC"){
+							document.getElementById('suc').style.display='block';
+						}
 				}});
 		}
 
@@ -33,7 +36,6 @@
 			if(GetQueryString("tx")!=null){
 				demoQuery();
 			}
-			alert($.cookie("name"));
 			$("input[name='name']").val($.cookie("name"));
 			$("input[name='phone']").val($.cookie("phone"));
 		});
@@ -41,7 +43,7 @@
 		function demoQuery2(){
 			$.ajax({
 				type:'post',
-				url:"http://localhost:8080/"+"order/saveCustomInfo.action",
+				url:urlConfig+"order/saveCustomInfo.action",
 				contentType:'application/json;charset=utf-8',
 				dataType:"json",
 				//数据格式是json串，商品信息
@@ -70,5 +72,15 @@
 		<br>用户姓名<input type="text" name="name" id="name" value=""/></br>
 		<br>用户状态<input type="text" name="phone" id="phone" value="" /></br>
 		<br><input type="button" name="btn" id="btn" value="保存" onclick="demoQuery2()"/></br>
+
+		<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+			<input type="hidden" name="cmd" value="_s-xclick">
+			<input type="hidden" name="hosted_button_id" value="XN65M4S3NS5FL">
+			<input type="image" src="https://www.sandbox.paypal.com/zh_XC/C2/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal——最安全便捷的在线支付方式！">
+			<img alt="" border="0" src="https://www.sandbox.paypal.com/zh_XC/i/scr/pixel.gif" width="1" height="1">
+		</form>
+
+
+		<div id="suc" style="display:none;">支付成功了</div>
 	</body>
 </html>
