@@ -18,7 +18,7 @@
         function demoQuery(){
             $.ajax({
                 type:'post',
-                url:"http://localhost:8080/"+"email/sendemail.action",
+                url:urlConfig+"email/sendemail.action",
                 contentType:'application/json;charset=utf-8',
                 dataType:"json",
                 success:function(data){//返回json结果

@@ -76,22 +76,22 @@
                     <div class="contact-lside">
                         <div class="contact-form-item">
                             <label for="">发送信息给我们：</label>
-                            <input type="email">
+                            <input id="email" name="email" type="email">
                         </div>
                         <div class="contact-form-item">
                             <label for="">您的联系方式：</label>
-                            <input type="email">
+                            <input id="phone" name="phone" type="email">
                         </div>
                         <div class="contact-form-item">
                             <label for="">您的名字：</label>
-                            <input type="email">
+                            <input id="name" name="name" type="email">
                         </div>
                     </div>
                     <div class="contact-rside">
                         <div class="contact-form-item">
                             <label for="">你想反馈或查询的信息：</label>
-                            <textarea name="" ></textarea>
-                            <button type="button">发送</button>
+                            <textarea name="content" id="content"></textarea>
+                            <button type="button" onclick="sendEmail()">发送</button>
                         </div>
                     </div>
                 </div>
@@ -103,5 +103,18 @@
     </div>
     <script src="../../js/javascripts/jquery-3.0.0.min.js"></script>
     <script src="../../js/javascripts/main.js"></script>
+    <script src="../../js/config.js"></script>
+    <script>
+        function sendEmail(){
+            $.ajax({
+                type:'post',
+                url:urlConfig+"email/sendemail.action",
+                contentType:'application/json;charset=utf-8',
+                dataType:"json",
+                data:JSON.stringify({name:$("input[name='name']").val(),phone:$("input[name='phone']").val(),email:$("input[name='email']").val(),content:$("textarea[name='content']").val()}),
+                success:function(data){//返回json结果
+                }});
+        }
+    </script>
 </body>
 </html>
