@@ -23,21 +23,35 @@
 					contentType:'application/json;charset=utf-8',
 					dataType:"json",
 					//数据格式是json串，商品信息
-					data:JSON.stringify({amt:GetQueryString("amt"),cc:GetQueryString("cc"),item_name:GetQueryString("item_name"),st:GetQueryString("st"),tx:GetQueryString("tx")}),
+					data:JSON.stringify({amt:GetQueryString("amt"),cc:GetQueryString("cc"),item_name:GetQueryString("item_name"),st:GetQueryString("st"),tx:GetQueryString("tx"),
+						name:$("input[name='name']").val(),
+						phone:$("input[name='phone']").val(),
+						roomType:$("input[name='roomType']").val(),
+						email:$("input[name='email']").val(),
+						personNum:$("input[name='personNum']").val(),
+						moneySum:$("input[name='moneySum']").val(),
+						passport:$("input[name='passport']").val()}),
 					success:function(data){//返回json结果
 						alert(data.info);
 						if(data.info == "SUCC"){
 							document.getElementById('suc').style.display='block';
+						}else if(data.info == "FAIL"){
+							document.getElementById('fai').style.display='block';
 						}
 				}});
 		}
 
 		$(document).ready(function () {
+			$("input[name='name']").val($.cookie("name"));
+			$("input[name='phone']").val($.cookie("phone"));
+			$("input[name='roomType']").val($.cookie("roomType"));
+			$("input[name='email']").val($.cookie("email"));
+			$("input[name='personNum']").val($.cookie("personNum"));
+			$("input[name='moneySum']").val($.cookie("moneySum"));
+			$("input[name='passport']").val($.cookie("passport"));
 			if(GetQueryString("tx")!=null){
 				demoQuery();
 			}
-			$("input[name='name']").val($.cookie("name"));
-			$("input[name='phone']").val($.cookie("phone"));
 		});
 
 		function demoQuery2(){
@@ -47,7 +61,13 @@
 				contentType:'application/json;charset=utf-8',
 				dataType:"json",
 				//数据格式是json串，商品信息
-				data:JSON.stringify({name:$("input[name='name']").val(),phone:$("input[name='phone']").val()}),
+				data:JSON.stringify({name:$("input[name='name']").val(),
+					phone:$("input[name='phone']").val(),
+					roomType:$("input[name='roomType']").val(),
+					email:$("input[name='email']").val(),
+					personNum:$("input[name='personNum']").val(),
+					moneySum:$("input[name='moneySum']").val(),
+					passport:$("input[name='passport']").val()}),
 				success:function(data){//返回json结果
 				}});
 		}
@@ -70,7 +90,12 @@
 		<!--<br><input type="button" name="btn" id="btn" value="取到数据" onclick="demoQuery()"/></br>-->
 
 		<br>用户姓名<input type="text" name="name" id="name" value=""/></br>
-		<br>用户状态<input type="text" name="phone" id="phone" value="" /></br>
+		<br>用户电话<input type="text" name="phone" id="phone" value="" /></br>
+		<br>用户邮箱<input type="text" name="email" id="email" value="" /></br>
+		<br>房间类型<input type="text" name="roomType" id="roomType" value="" /></br>
+		<br>期望成团人数<input type="text" name="personNum" id="personNum" value="" /></br>
+		<br>金额<input type="text" name="moneySum" id="moneySum" value="" /></br>
+		<br>护照号<input type="text" name="passport" id="passport" value="" /></br>
 		<br><input type="button" name="btn" id="btn" value="保存" onclick="demoQuery2()"/></br>
 
 		<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -82,5 +107,6 @@
 
 
 		<div id="suc" style="display:none;">支付成功了</div>
+		<div id="fai" style="display:none;">很抱歉,支付失败了</div>
 	</body>
 </html>

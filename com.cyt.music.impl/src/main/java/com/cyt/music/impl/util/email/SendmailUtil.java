@@ -1,6 +1,6 @@
 package com.cyt.music.impl.util.email;
 
-import java.util.Properties;
+import org.apache.log4j.Logger;
 
 import javax.mail.Authenticator;
 import javax.mail.Message;
@@ -11,9 +11,13 @@ import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.io.IOException;
+import java.security.Security;
+import java.util.Date;
+import java.util.Properties;
 
 public class SendmailUtil {
-
+    private static Logger log = Logger.getLogger(SendmailUtil.class);
     // 设置服务器
     private static String KEY_SMTP = "mail.smtp.host";
     private static String VALUE_SMTP = "smtp.163.com";
@@ -21,9 +25,9 @@ public class SendmailUtil {
     private static String KEY_PROPS = "mail.smtp.auth";
     private static boolean VALUE_PROPS = true;
     // 发件人用户名、密码
-    private String SEND_USER = "freevelbest@163.com";
-    private String SEND_UNAME = "freevelbest@163.com";
-    private String SEND_PWD = "a521213";
+    private static String SEND_USER = "freevelbest@163.com";
+    private static String SEND_UNAME = "freevelbest@163.com";
+    private static String SEND_PWD = "a521213";
     // 建立会话
     private MimeMessage message;
     private Session s;
@@ -80,8 +84,51 @@ public class SendmailUtil {
         }
     }
 
+    public static boolean sslSend(String headName, String sendText)
+            throws AddressException, MessagingException, IOException {
+        log.info("sslSend");
+        Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+        final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
+        // Get a Properties object
+        Properties props = new Properties();
+//        props.setProperty("mail.smtp.host", emailAccount.getPlace());
+        props.setProperty("mail.smtp.socketFactory.class", SSL_FACTORY);
+        props.setProperty("mail.smtp.socketFactory.fallback", "false");
+        props.setProperty("mail.smtp.port", "465");
+        props.setProperty("mail.smtp.socketFactory.port", "465");
+        props.put("mail.smtp.auth", "true");
+
+        final String username = SEND_USER;
+        final String password = SEND_PWD;
+        Session session = Session.getDefaultInstance(props, new Authenticator(){
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }});
+        Message msg = new MimeMessage(session);
+
+        // 设置发件人和收件人
+        msg.setFrom(new InternetAddress(SEND_USER));
+        InternetAddress to = new InternetAddress("yyyvoyage@hotmail.com");
+        // 多个收件人地址
+        msg.setRecipient(Message.RecipientType.TO, to);
+        msg.setSubject(headName); // 标题
+        msg.setText(sendText);// 内容
+        msg.setSentDate(new Date());
+        Transport.send(msg);
+        System.out.println("EmailUtil ssl协议邮件发送打印" +msg.toString());
+        return true;
+    }
+
+
+
     public static void main(String[] args) {
         SendmailUtil se = new SendmailUtil();
-        se.doSendTextEmail("邮件头文件名", "邮件内容");
+        try {
+            se.sslSend("邮件头文件名", "邮件内容");
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

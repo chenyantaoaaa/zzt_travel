@@ -28,11 +28,11 @@
   <insert id="insert" parameterType="com.cyt.music.interfaces.pojo.order.OrderInfo">
     insert into order_info (id, name, phone, 
       email, room_type, person_num, 
-      target, money_sum, passport
+      target, money_sum, passport,tx
       )
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{roomType,jdbcType=VARCHAR}, #{personNum,jdbcType=VARCHAR}, 
-      #{target,jdbcType=VARCHAR}, #{moneySum,jdbcType=VARCHAR}, #{passport,jdbcType=VARCHAR}
+      #{target,jdbcType=VARCHAR}, #{moneySum,jdbcType=VARCHAR}, #{passport,jdbcType=VARCHAR},#{tx,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.cyt.music.interfaces.pojo.order.OrderInfo">
@@ -138,7 +138,7 @@
       passport = #{passport,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <select id="queryOrderInfo" parameterType="com.cyt.music.interfaces.pojo.order.OrderDto" resultType="com.cyt.music.interfaces.pojo.order.OrderInfo">
+  <select id="queryOrderInfo" parameterType="com.cyt.music.interfaces.pojo.order.OrderInfo" resultType="com.cyt.music.interfaces.pojo.order.OrderInfo">
     SELECT  t.name,
     t.id,
     t.phone,
@@ -147,7 +147,8 @@
     t.person_num as personNum,
     t.target,
     t.money_sum as moneySum,
-    t.passport
+    t.passport,
+    t.tx
     FROM
     order_info t
     <!--<where>-->

@@ -1,7 +1,6 @@
 package com.cyt.music.impl.service.order;
 
 import com.cyt.music.impl.logic.order.OrderLogic;
-import com.cyt.music.interfaces.pojo.order.OrderDto;
 import com.cyt.music.interfaces.pojo.order.OrderInfo;
 import org.apache.http.NameValuePair;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,7 @@ public class OrderInfoServiceImpl implements OrderInfoService {
     private OrderLogic orderLogic;
 
     @Override
-    public List<OrderInfo> queryOrderInfo(OrderDto dto) throws Exception {
+    public List<OrderInfo> queryOrderInfo(OrderInfo dto) throws Exception {
         return orderLogic.queryOrderInfo(dto);
     }
 

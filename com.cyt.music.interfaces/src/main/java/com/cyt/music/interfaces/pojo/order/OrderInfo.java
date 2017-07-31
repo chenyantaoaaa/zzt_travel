@@ -19,6 +19,16 @@ public class OrderInfo {
 
     private String passport;
 
+    private String tx;
+
+    public String getTx() {
+        return tx;
+    }
+
+    public void setTx(String tx) {
+        this.tx = tx;
+    }
+
     public Integer getId() {
         return id;
     }

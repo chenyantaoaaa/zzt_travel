@@ -1,7 +1,6 @@
 package com.cyt.music.impl.mapper.Order;
 
 
-import com.cyt.music.interfaces.pojo.order.OrderDto;
 import com.cyt.music.interfaces.pojo.order.OrderInfo;
 
 import java.util.List;
@@ -19,5 +18,5 @@ public interface OrderInfoMapper {
 
     int updateByPrimaryKey(OrderInfo record);
 
-    List<OrderInfo> queryOrderInfo(OrderDto orderDto);
+    List<OrderInfo> queryOrderInfo(OrderInfo orderDto);
 }

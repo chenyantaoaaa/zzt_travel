@@ -1,8 +1,6 @@
 package com.cyt.music.impl.logic.email;
 
 import com.cyt.music.impl.util.email.SendmailUtil;
-import com.icegreen.greenmail.util.GreenMail;
-import com.icegreen.greenmail.util.ServerSetup;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,6 +10,6 @@ import org.springframework.stereotype.Component;
 public class EmailLogic {
     public void sendEmail(String emailStr,String title) throws Exception {
         SendmailUtil sendmailUtil=new SendmailUtil();
-        sendmailUtil.doSendTextEmail(title,emailStr);
+        sendmailUtil.sslSend(title,emailStr);
     }
 }
