@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="../../css/form/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="../../css/form/style.css"> <!-- Resource style -->
+    <script src="../../js/form/modernizr.js"></script> <!-- Modernizr -->
+    <script src="../../js/form/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="../../js/jquery.cookie.js" ></script>
+    <title>Contact Form | CodyHouse</title>
+</head>
+<body>
+<form class="cd-form floating-labels">
+    <fieldset>
+        <legend>请填写您的个人信息</legend>
+
+        <div class="error-message">
+            <p>Please enter a valid email address</p>
+        </div>
+
+        <div class="icon">
+            <label class="cd-label" for="cd-name">Name</label>
+            <input class="user" type="text" name="cd-name" id="cd-name" required>
+        </div>
+
+        <div class="icon">
+            <label class="cd-label" for="cd-phone">Phone</label>
+            <input class="phone" type="text" name="cd-phone" id="cd-phone" required>
+        </div>
+
+        <div class="icon">
+            <label class="cd-label" for="cd-email">Email</label>
+            <input class="email error" type="email" name="cd-email" id="cd-email" required>
+        </div>
+
+        <div class="icon">
+            <label class="cd-label" for="cd-passport">PassPortNum</label>
+            <input class="passport" type="text" name="cd-passport" id="cd-passport" required>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>请填写您的项目信息</legend>
+
+        <div>
+            <h4>希望成团人数</h4>
+            <p class="cd-select icon">
+                <select class="budget">
+                    <option value="0">1人</option>
+                    <option value="1">2人</option>
+                    <option value="2">3人</option>
+                    <option value="3">4人</option>
+                </select>
+            </p>
+        </div>
+
+        <div>
+            <h4>房间类型</h4>
+            <ul class="cd-form-list">
+                <li>
+                    <input type="radio" name="radio-button" id="cd-radio-1" checked>
+                    <label for="cd-radio-1">Choice 1</label>
+                </li>
+                <li>
+                    <input type="radio" name="radio-button" id="cd-radio-2">
+                    <label for="cd-radio-2">Choice 2</label>
+                </li>
+            </ul>
+        </div>
+
+        <!--<div>-->
+            <!--<h4>Features</h4>-->
+
+            <!--<ul class="cd-form-list">-->
+                <!--<li>-->
+                    <!--<input type="checkbox" id="cd-checkbox-1">-->
+                    <!--<label for="cd-checkbox-1">Option 1</label>-->
+                <!--</li>-->
+
+                <!--<li>-->
+                    <!--<input type="checkbox" id="cd-checkbox-2">-->
+                    <!--<label for="cd-checkbox-2">Option 2</label>-->
+                <!--</li>-->
+
+                <!--<li>-->
+                    <!--<input type="checkbox" id="cd-checkbox-3">-->
+                    <!--<label for="cd-checkbox-3">Option 3</label>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+
+        <!--<div class="icon">-->
+            <!--<label class="cd-label" for="cd-textarea">Project description</label>-->
+            <!--<textarea class="message" name="cd-textarea" id="cd-textarea" required></textarea>-->
+        <!--</div>-->
+
+        <!--<div>-->
+            <!--<input type="submit" value="Send Message">-->
+        <!--</div>-->
+        <br><input type="button" name="btn" id="btn" value="保存" onclick="demoQuery2()"/></br>
+        <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="XN65M4S3NS5FL">
+            <input type="image" src="https://www.sandbox.paypal.com/zh_XC/C2/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal——最安全便捷的在线支付方式！">
+            <img alt="" border="0" src="https://www.sandbox.paypal.com/zh_XC/i/scr/pixel.gif" width="1" height="1">
+        </form>
+        <div id="suc" style="display:none;">支付成功了</div>
+        <div id="fai" style="display:none;">很抱歉,支付失败了</div>
+    </fieldset>
+</form>
+<script src="../../js/config.js"></script>
+<script src="../../js/form/main.js"></script> <!-- Resource jQuery -->
+<script>
+    function demoQuery(){
+        $.ajax({
+            type:'post',
+            url:urlConfig+"order/getPayInfo.action",
+            contentType:'application/json;charset=utf-8',
+            dataType:"json",
+            //数据格式是json串，商品信息
+            data:JSON.stringify({amt:GetQueryString("amt"),cc:GetQueryString("cc"),item_name:GetQueryString("item_name"),st:GetQueryString("st"),tx:GetQueryString("tx"),
+                name:$("input[name='cd-name']").val(),
+                phone:$("input[name='cd-phone']").val(),
+                roomType:$("input[name='roomType']").val(),
+                email:$("input[name='cd-email']").val(),
+                personNum:$("input[name='personNum']").val(),
+                passport:$("input[name='cd-passport']").val()}),
+            success:function(data){//返回json结果
+                alert(data.info);
+                if(data.info == "SUCC"){
+                    document.getElementById('suc').style.display='block';
+                }else if(data.info == "FAIL"){
+                    document.getElementById('fai').style.display='block';
+                }
+            }});
+    }
+
+    $(document).ready(function () {
+        $("input[name='cd-name']").val($.cookie("name"));
+        $("input[name='cd-phone']").val($.cookie("phone"));
+        $("input[name='roomType']").val($.cookie("roomType"));
+        $("input[name='cd-email']").val($.cookie("email"));
+        $("input[name='personNum']").val($.cookie("personNum"));
+        $("input[name='cd-passport']").val($.cookie("passport"));
+        if(GetQueryString("tx")!=null){
+            demoQuery();
+        }
+    });
+
+    function demoQuery2(){
+        $.ajax({
+            type:'post',
+            url:urlConfig+"order/saveCustomInfo.action",
+            contentType:'application/json;charset=utf-8',
+            dataType:"json",
+            //数据格式是json串，商品信息
+            data:JSON.stringify({name:$("input[name='cd-name']").val(),
+                phone:$("input[name='cd-phone']").val(),
+                roomType:$("input[name='roomType']").val(),
+                email:$("input[name='cd-email']").val(),
+                personNum:$("input[name='personNum']").val(),
+                passport:$("input[name='cd-passport']").val()}),
+            success:function(data){//返回json结果
+            }});
+    }
+
+    function GetQueryString(name)
+    {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return  unescape(r[2]); return null;
+    }
+</script>
+</body>
+</html>

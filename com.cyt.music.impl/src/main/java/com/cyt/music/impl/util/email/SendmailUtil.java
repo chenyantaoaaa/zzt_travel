@@ -1,5 +1,6 @@
 package com.cyt.music.impl.util.email;
 
+import com.sun.mail.util.MailSSLSocketFactory;
 import org.apache.log4j.Logger;
 
 import javax.mail.Authenticator;
@@ -12,6 +13,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.security.Security;
 import java.util.Date;
 import java.util.Properties;
@@ -87,6 +89,13 @@ public class SendmailUtil {
     public static boolean sslSend(String headName, String sendText)
             throws AddressException, MessagingException, IOException {
         log.info("sslSend");
+        MailSSLSocketFactory sf = null;
+        try {
+            sf = new MailSSLSocketFactory();
+        } catch (GeneralSecurityException e) {
+            e.printStackTrace();
+        }
+        sf.setTrustAllHosts(true);
         Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
         final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
         // Get a Properties object
@@ -95,6 +104,7 @@ public class SendmailUtil {
         props.setProperty("mail.smtp.socketFactory.class", SSL_FACTORY);
         props.setProperty("mail.smtp.socketFactory.fallback", "false");
         props.setProperty("mail.smtp.port", "465");
+        props.setProperty("mail.smtp.port.enable", "true");
         props.setProperty("mail.smtp.socketFactory.port", "465");
         props.put("mail.smtp.auth", "true");
 
