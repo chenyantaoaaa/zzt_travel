@@ -49,11 +49,11 @@
         <div>
             <h4>希望成团人数</h4>
             <p class="cd-select icon">
-                <select class="budget">
-                    <option value="0">1人</option>
-                    <option value="1">2人</option>
-                    <option value="2">3人</option>
-                    <option value="3">4人</option>
+                <select class="budget" id="budget">
+                    <option value="1">1人</option>
+                    <option value="2">2人</option>
+                    <option value="3">3人</option>
+                    <option value="4">4人</option>
                 </select>
             </p>
         </div>
@@ -63,11 +63,11 @@
             <ul class="cd-form-list">
                 <li>
                     <input type="radio" name="radio-button" id="cd-radio-1" checked>
-                    <label for="cd-radio-1">Choice 1</label>
+                    <label for="cd-radio-1">标准双人间</label>
                 </li>
                 <li>
                     <input type="radio" name="radio-button" id="cd-radio-2">
-                    <label for="cd-radio-2">Choice 2</label>
+                    <label for="cd-radio-2">标准大床房</label>
                 </li>
             </ul>
         </div>
@@ -102,20 +102,38 @@
             <!--<input type="submit" value="Send Message">-->
         <!--</div>-->
         <br><input type="button" name="btn" id="btn" value="保存" onclick="demoQuery2()"/></br>
-        <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <!--<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">-->
+            <!--<input type="hidden" name="cmd" value="_s-xclick">-->
+            <!--<input type="hidden" name="hosted_button_id" value="XN65M4S3NS5FL">-->
+            <!--<input type="image" src="https://www.sandbox.paypal.com/zh_XC/C2/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal——最安全便捷的在线支付方式！">-->
+            <!--<img alt="" border="0" src="https://www.sandbox.paypal.com/zh_XC/i/scr/pixel.gif" width="1" height="1">-->
+        <!--</form>-->
+
+        <form class="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
             <input type="hidden" name="cmd" value="_s-xclick">
-            <input type="hidden" name="hosted_button_id" value="XN65M4S3NS5FL">
+            <input type="hidden" name="hosted_button_id" value="J2V78NK99E7NY">
+            <table>
+                <tr><td><input type="hidden" name="on0" value="参团人数">参团人数</td></tr><tr><td><select name="os0">
+                <option value="1人">1人 € 10.00 EUR</option>
+                <option value="2人">2人 € 20.00 EUR</option>
+                <option value="3人">3人 € 30.00 EUR</option>
+            </select> </td></tr>
+            </table>
+            <input type="hidden" name="currency_code" value="EUR">
             <input type="image" src="https://www.sandbox.paypal.com/zh_XC/C2/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal——最安全便捷的在线支付方式！">
             <img alt="" border="0" src="https://www.sandbox.paypal.com/zh_XC/i/scr/pixel.gif" width="1" height="1">
         </form>
+
         <div id="suc" style="display:none;">支付成功了</div>
         <div id="fai" style="display:none;">很抱歉,支付失败了</div>
     </fieldset>
 </form>
 <script src="../../js/config.js"></script>
-<script src="../../js/form/main.js"></script> <!-- Resource jQuery -->
 <script>
+//    var roomType = "";
+//    if()
     function demoQuery(){
+        awardRoomType();
         $.ajax({
             type:'post',
             url:urlConfig+"order/getPayInfo.action",
@@ -125,9 +143,9 @@
             data:JSON.stringify({amt:GetQueryString("amt"),cc:GetQueryString("cc"),item_name:GetQueryString("item_name"),st:GetQueryString("st"),tx:GetQueryString("tx"),
                 name:$("input[name='cd-name']").val(),
                 phone:$("input[name='cd-phone']").val(),
-                roomType:$("input[name='roomType']").val(),
+                roomType:roomType,
                 email:$("input[name='cd-email']").val(),
-                personNum:$("input[name='personNum']").val(),
+                personNum:$("#budget").val(),
                 passport:$("input[name='cd-passport']").val()}),
             success:function(data){//返回json结果
                 alert(data.info);
@@ -142,16 +160,53 @@
     $(document).ready(function () {
         $("input[name='cd-name']").val($.cookie("name"));
         $("input[name='cd-phone']").val($.cookie("phone"));
-        $("input[name='roomType']").val($.cookie("roomType"));
         $("input[name='cd-email']").val($.cookie("email"));
-        $("input[name='personNum']").val($.cookie("personNum"));
+        $("#budget").val($.cookie("personNum"));
         $("input[name='cd-passport']").val($.cookie("passport"));
+        if($.cookie("roomType")=="2"){
+            $("#cd-radio-2").attr("checked","checked");
+        }else{
+            $("#cd-radio-1").attr("checked","checked");
+        }
         if(GetQueryString("tx")!=null){
             demoQuery();
         }
+
+        if( $('.floating-labels').length > 0 ) floatLabels();
+
+        function floatLabels() {
+            var inputFields = $('.floating-labels .cd-label').next();
+            inputFields.each(function(){
+                var singleInput = $(this);
+                //check if user is filling one of the form fields
+                checkVal(singleInput);
+                singleInput.on('change keyup', function(){
+                    checkVal(singleInput);
+                });
+            });
+        }
+
+        function checkVal(inputField) {
+            ( inputField.val() == '' ) ? inputField.prev('.cd-label').removeClass('float') : inputField.prev('.cd-label').addClass('float');
+        }
     });
 
+    window.onload = test;
+    function test () {
+    }
+
+    var roomType = "";
+    function awardRoomType () {
+        if ($("input[id='cd-radio-1']:checked").val() == "on") {
+            roomType = "1";
+        }
+        if ($("input[id='cd-radio-2']:checked").val() == "on") {
+            roomType = "2";
+        }
+    }
+
     function demoQuery2(){
+        awardRoomType();
         $.ajax({
             type:'post',
             url:urlConfig+"order/saveCustomInfo.action",
@@ -160,9 +215,9 @@
             //数据格式是json串，商品信息
             data:JSON.stringify({name:$("input[name='cd-name']").val(),
                 phone:$("input[name='cd-phone']").val(),
-                roomType:$("input[name='roomType']").val(),
+                roomType:roomType,
                 email:$("input[name='cd-email']").val(),
-                personNum:$("input[name='personNum']").val(),
+                personNum:$("#budget").val(),
                 passport:$("input[name='cd-passport']").val()}),
             success:function(data){//返回json结果
             }});
