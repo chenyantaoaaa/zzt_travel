@@ -25,6 +25,14 @@ a {
   text-decoration: none;
 }
 
+.paypal{
+  position: absolute;
+  left: 50%;
+  width:200px;
+  height:100px;
+  margin-left:-100px;
+  margin-top:-50px;
+}
 /* -------------------------------- 
 
 Form
@@ -265,7 +273,7 @@ Form
   background: url("../../img/form/cd-required.svg") no-repeat top right;
 }
 .cd-form .error-message p {
-  background: #e94b35;
+  background: #259ce9;
   color: #ffffff;
   font-size: 1.4rem;
   text-align: center;
@@ -275,7 +283,7 @@ Form
   padding: 16px;
 }
 .cd-form .error {
-  border-color: #e94b35 !important;
+  border-color: #259ce9 !important;
 }
 @media only screen and (min-width: 600px) {
   .cd-form div {
