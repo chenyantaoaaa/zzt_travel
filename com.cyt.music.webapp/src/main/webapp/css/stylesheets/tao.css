@@ -20,6 +20,14 @@ a,a:link,a:visited,a:hover,a:active{
     text-decoration: none;
     color: #000000;
 }
+@font-face
+{
+    font-family: myFirstFont;
+    src: url(../../fonts/common/Copperplate.ttc); /* IE9+ */
+}
+.tabFont{
+    font-family: myFirstFont;
+}
 .container{
     position: absolute;
     top: 0;
@@ -69,7 +77,7 @@ a,a:link,a:visited,a:hover,a:active{
 }
 .home-page .home-img-area img.home-main-image{
     width: 100%;
-    height: auto;
+    height: 900px;
 }
 .footer-img.home-img-area{
     width: 100%;
@@ -82,7 +90,9 @@ a,a:link,a:visited,a:hover,a:active{
     margin: 0 auto;
 }
 .home-page .home-section .home-brief-title{
-    font-size: 2rem;
+    margin-top: 4rem;
+    font-size: 3rem;
+    font-family: Arial;
 }
 .home-page .home-section .home-brief-title-second{
     font-size: 1.2rem;
@@ -93,6 +103,8 @@ a,a:link,a:visited,a:hover,a:active{
 }
 .home-page .home-section .home-brief-text{
     text-indent: 2rem;
+    font-family: Arial;
+    font-size: 24px;
 }
 .home-brief-body .home-brief-item{
     display: inline-block;
@@ -169,7 +181,7 @@ section.t-body{
 .m-brief{
     position: absolute;
     top: 10rem;
-    right: 10rem;
+    right: 12.5rem;
 }
 .m-brief .m-brief-title{
     font-size: 3.6rem;
@@ -180,10 +192,11 @@ section.t-body{
     margin: 0 .5rem;
 }
 .m-brief .m-brief-btn{
+    margin-left: 485px;
     display: inline-block;
     width: 24rem;
     height: 5rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
     font-size: 2rem;
     color: #ffffff;
     line-height: 5rem;
@@ -199,7 +212,7 @@ section.t-body{
 
 .m-container{
     width: 78%;
-    margin: 22rem auto 0;
+    margin: 25rem auto 0;
     box-sizing: border-box;
 }
 
@@ -241,6 +254,9 @@ section.t-body{
     margin: 0 1rem;
     font-size: 1.2rem;
     color: #AEAEAE;
+    font-family: Arial;
+    border-bottom: 1px solid #9D9D9D;
+    padding-bottom:35px
 }
 .m-pane-title p:first-child{
     font-size: 1.5rem;
@@ -261,8 +277,10 @@ section.t-body{
 .m-pane-body .m-pane-section .schedule-item-body{
     display: inline-block;
     position: absolute;
-    bottom: 1rem;
+    top: 4rem;
     margin-left: 3rem;
+    font-family: Arial;
+    font-size: 18px;
 }
 .m-pane-body .m-pane-section .schedule-item-body .schedule-item-section{
     overflow: hidden;
@@ -348,6 +366,7 @@ section.t-body{
 .service__container .m-pane-title{
     width: 70%;
     border-bottom: 1px solid #9D9D9D;
+    padding-bottom: 35px;
 }
 .m-pane-title .fee{
     color: #FD5E27;
@@ -502,6 +521,7 @@ section.t-body{
 .m-pane-body .m-hotel-body .m-hotel-detail .hotel-detail-rside .hotel-brief{
     text-indent: 2rem;
     color: #5C5850;
+    font-family: Arial;
 }
 
 /*评价*/
@@ -634,7 +654,8 @@ section.t-body{
 }
 .modal-body  .right-side section p{
     text-indent: 2rem;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     color: #999999;
     margin: 1rem;
+    font-family: Arial;
 }
