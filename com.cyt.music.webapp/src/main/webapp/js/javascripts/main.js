@@ -143,5 +143,16 @@ $(function () {
         $(".right-side section").empty();
         $(".right-side header").text("");
         $(".modal-view-point").css("display","none");
-    })
+    });
+    $(".hotel-image img").on("click",function (e) {
+        e.stopPropagation();
+        $("body").css("overflow","hidden");
+        var imgSrc = $(e.target).attr("src");
+        $("#modal-hotel-view").find("img").attr("src", imgSrc);
+        $("#modal-hotel-view").css("display","block");
+    });
+    $("#modal-hotel-view").on("click", function () {
+        $("body").css("overflow","auto");
+        $("#modal-hotel-view").css("display","none");
+    });
 })();

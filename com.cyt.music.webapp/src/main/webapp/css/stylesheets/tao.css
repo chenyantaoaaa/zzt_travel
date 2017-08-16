@@ -119,16 +119,24 @@ a,a:link,a:visited,a:hover,a:active{
     overflow: hidden;
 }
 .home-contact-form .contact-lside{
-    width: 20%;
-    height: 10rem;
+    padding-top: 1.5rem;
+    width: 45%;
+    height: 20rem;
     float: left;
+    /*padding-left: ;*/
 }
 .home-contact-form .contact-rside{
-    height: 10rem;
+    padding-top: 1.5rem;
+    height: 20rem;
     float: left;
+    margin-left: 10rem;
 }
 .home-contact-form .contact-form-item label{
     display: block;
+}
+
+.content{
+    height: 500px;
 }
 .home-contact-form .contact-form-item textarea{
     height: 5.6rem;
@@ -192,7 +200,7 @@ section.t-body{
     margin: 0 .5rem;
 }
 .m-brief .m-brief-btn{
-    margin-left: 485px;
+    float: right;
     display: inline-block;
     width: 24rem;
     height: 5rem;
@@ -258,6 +266,14 @@ section.t-body{
     border-bottom: 1px solid #9D9D9D;
     padding-bottom:35px
 }
+.titleImg{
+    width: 100%;
+}
+.tabTitleImg{
+    width:80%;
+    height: 80%;
+}
+
 .m-pane-title p:first-child{
     font-size: 1.5rem;
     color: #727272;
@@ -494,15 +510,16 @@ section.t-body{
 .m-pane-body .m-hotel-body .m-hotel-detail .hotel-detail-lside{
     display: inline-block;
     padding: 1rem 0;
-    width: 55%;
+    height: 55%;
     overflow: hidden;
     float: left;
     /*height: 100%;*/
 }
 .m-pane-body .m-hotel-body .m-hotel-detail .hotel-detail-lside .hotel-image{
     display: inline-block;
-    width: calc( 50% - 1.5rem  );
-    margin: .5rem;
+    width: 30%;
+    /*margin: .5rem;*/
+    margin-left:1.9%;
     padding: .4rem;
     box-sizing: border-box;
     background-color: #ffffff;
@@ -513,13 +530,13 @@ section.t-body{
 }
 .m-pane-body .m-hotel-body .m-hotel-detail .hotel-detail-rside{
     display: inline-block;
-    width: 45%;
-    padding: 1rem 2rem;
+    height: 45%;
+    padding: 0rem 1rem;
     box-sizing: border-box;
     float: left;
 }
 .m-pane-body .m-hotel-body .m-hotel-detail .hotel-detail-rside .hotel-brief{
-    text-indent: 2rem;
+    text-indent: 1rem;
     color: #5C5850;
     font-family: Arial;
 }
@@ -597,6 +614,25 @@ section.t-body{
         display:none
     }
 }
+#modal-hotel-view{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    background-color: rgba(0,0,0,.6);
+}
+#modal-hotel-view img{
+    display: block;
+    display: block;
+    width: 40%;
+    height: auto;
+    margin: 120px auto;
+    border-radius: 8px;
+    cursor: pointer;
+}
 .modal-view-point{
     display: none;
     position: fixed;
@@ -609,7 +645,7 @@ section.t-body{
 }
 .modal-body{
     background-color: #FFFAF4;
-    width: 60rem;
+    width: 80rem;
     height: 42.5rem;
     border-radius: .5rem;
     padding: 1.8rem 1rem;
@@ -630,19 +666,21 @@ section.t-body{
     cursor: pointer;
 }
 .modal-body  .left-side{
-    width: 60%;
+    width: 47%;
     text-align: center;
     display: inline-block;
     float: left;
+    margin: 1rem;
 }
 .modal-body .left-side img{
+    float: left;
     height: 20rem;
     width: auto;
     margin: .5rem;
 }
 .modal-body  .right-side{
     display: inline-block;
-    width: 40%;
+    width: 50%;
     float: left;
 }
 .modal-body  .right-side header{
