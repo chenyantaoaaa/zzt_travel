@@ -60,7 +60,7 @@ public class OrderController {
         OrderInfo dto=new OrderInfo();
         if("SUCC".equals(returnMsg)){//如果付款成功 则记入客户填写的信息
             BeanUtils.copyProperties(dto,payInfo);
-            dto.setTarget("张家界");
+            dto.setTarget("Zhangjiajie");
             orderInfoService.addOrderInfo(dto);
         }
         payRes.setInfo(returnMsg);

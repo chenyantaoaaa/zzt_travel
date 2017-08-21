@@ -102,7 +102,7 @@ a,a:link,a:visited,a:hover,a:active{
     font-weight: bolder;
 }
 .home-page .home-section .home-brief-text{
-    text-indent: 2rem;
+    /*text-indent: 2rem;*/
     font-family: Arial;
     font-size: 24px;
 }
@@ -323,6 +323,7 @@ section.t-body{
     font-size: 1rem;
     float: left;
     box-shadow: 1px 1px 10px 2px #CBCBCA;
+    height: 400px;
 }
 .m-pane-body .m-scene-card .card-cover{
     position: relative;
@@ -339,18 +340,21 @@ section.t-body{
 }
 .m-pane-body .m-scene-card .card-cover .card-city.wuhan{
     background-color: #27A6D1;
-    letter-spacing: .5rem;
-    padding: 0 .5rem 0 1rem;
+    /*letter-spacing: .1rem;*/
+    padding: 0 .5rem 0 .4rem;
+    font-family: Arial;
 }
 .m-pane-body .m-scene-card .card-cover .card-city.zhangjiajie{
     background-color: #F1BB00;
-    letter-spacing: .2rem;
+    /*letter-spacing: .1rem;*/
     padding: 0 .2rem 0 .4rem;
+    font-family: Arial;
 }
 .m-pane-body .m-scene-card .card-cover .card-city.phoenix{
     background-color: #FF7556;
-    letter-spacing: .5rem;
-    padding: 0 .5rem 0 1rem;
+    /*letter-spacing: .1rem;*/
+    padding: 0 .5rem 0 .4rem;
+    font-family: Arial;
 }
 .m-pane-body .m-scene-card img{
     width: 100%;
@@ -363,6 +367,7 @@ section.t-body{
 .m-pane-body .m-scene-card .card-info .card-title{
     font-size: 1.1rem;
     margin: 0 0 .5rem;
+    font-family: Arial;
 }
 .m-pane-body .m-scene-card .card-info .card-detail{
     font-size: .95rem;
@@ -370,12 +375,14 @@ section.t-body{
     margin-top: .5rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid #D4D4CC;
+    font-family: Arial;
 }
 .m-pane-body .m-scene-card .card-more-info{
     margin: 1rem;
     text-align: right;
     color: #014EB6;
     cursor: pointer;
+    font-family: "Monotype Corsiva";
 }
 
 /*服务*/
@@ -393,6 +400,7 @@ section.t-body{
     margin: 2rem 1rem 4rem;
 }
 .m-pane-body .m-pane-section .service-item-title{
+    font-family: "Impact";
     font-size: 2rem;
 }
 .m-pane-body .m-pane-section .service-item-body{
@@ -402,6 +410,7 @@ section.t-body{
 }
 .service-item-body>p{
     padding: 0 2rem;
+    font-family: Arial;
 }
 .m-pane-body .m-pane-section .service-item-body .service-item-detail img{
     width: 10rem;
@@ -413,6 +422,9 @@ section.t-body{
     width: 14rem;
     float: left;
     margin-top: 6rem;
+    font-family: Arial;
+    font-size: 20px;
+    color: #000000;
 }
 .service-item-brief>p{
     margin: .5rem;
@@ -474,7 +486,7 @@ section.t-body{
 .m-pane-body .m-hotel-card .card-info .card-label span{
     display: inline-block;
     padding: .2rem .5rem;
-
+    font-family: Arial;
     color: #ffffff;
     border-radius: .2rem;
 }
@@ -485,11 +497,12 @@ section.t-body{
     background-color: #FBC316;
 }
 .m-pane-body .m-hotel-card .card-info .card-footer{
-    color: #7A7A7A;
     position: absolute;
     bottom: 1rem;
     right: 1rem;
     cursor: pointer;
+    color: #014EB6;
+    font-family: "Monotype Corsiva";
 }
 .m-pane-body .m-hotel-card .card-info .card-open-more{
     display: block;
@@ -520,7 +533,7 @@ section.t-body{
     width: 30%;
     /*margin: .5rem;*/
     margin-left:1.9%;
-    padding: .4rem;
+    padding-top: .4rem;
     box-sizing: border-box;
     background-color: #ffffff;
 }
@@ -684,16 +697,36 @@ section.t-body{
     float: left;
 }
 .modal-body  .right-side header{
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 500;
     border-bottom: 1px solid;
     margin-top: 2rem;
     padding-bottom: .5rem;
+    font-family: Impact;
+    text-align: center;
 }
 .modal-body  .right-side section p{
     text-indent: 2rem;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: #999999;
     margin: 1rem;
     font-family: Arial;
+}
+
+#hotel {
+    height: 1000px;
+}
+
+#priceDetails {
+    padding-left: 3rem;
+}
+
+#detailTrue li {
+    font-family: Arial;
+    font-size: 20px;
+}
+
+#detailFalse li {
+    font-family: Arial;
+    font-size: 20px;
 }
