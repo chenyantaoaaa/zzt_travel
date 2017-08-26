@@ -92,7 +92,7 @@ $(function () {
         },
         "tzfjq":{
             title: "Tianzishan",
-            pics: ["../../img/images/viewpoints/6-2_573_353.png","../../img/images/viewpoints/6-3_277_346.png","../../img/images/viewpoints/6-4_277_346.png"],
+            pics: ["../../img/images/viewpoints/tzs2.jpg","../../img/images/viewpoints/6-3_277_346.png","../../img/images/viewpoints/6-4_277_346.png"],
             brief: [
                 "La réserve naturelle de Tianzi Shan est l’endroit idéal où se plonger en pleine nature. Il suffit d’emprunter le téléphérique du site pour atteindre les sommets escarpés de Tianzishan. Là, l’Homme se rend compte à quel point il n’est rien comparé à la nature.",
                 "Tianzi Shan est principal constitué de cascades, de ponts, de forêts de pierre et de grottes. Cependant, 4 spectacles naturels sont considérés comme incontournables pour tout voyageur visitant Tianzishan : nuages de brouillard entourant les sommets de la montagne, vue étonnantes du soleil levant, nuit de pleine lune et pics enneigés. Vous l’aurez donc compris, ce n’est pas en visitant le site une demi-journée que vous pourrez admirer les plus jolis paysages de Tianzishan. Heureusement, 80 plateformes d’observations ont été installées pour donner plus d’opportunité d’apercevoir ces paysages mystiques."
@@ -111,8 +111,8 @@ $(function () {
             pics: ["../../img/images/viewpoints/5-2_573_353.png","../../img/images/viewpoints/5-3_217_346.png","../../img/images/viewpoints/5-4_337_346.png"],
             brief: [
                 "Les monts Hallelujah d'Avatar",
-                "Profitez d'une journée tout en douceur. Vous emprunterez une voiture écologique pour atteindre le pied de la Montagne de Tianzi Shan (Réserve naturelle du Tianzi Shan), connue pour ses quatre spectacles naturels aux noms bien poétiques : nuages de brouillard entourant les sommets de la montagne, vues étonnantes du soleil levant, nuit de pleine lune et pics enneigés. Le télésiège vous emportera au sommet, d'où vous découvrirez cette contrée merveilleuse où pics karstiques, forêts et cascades s'entremêlent majestueusement.",
-                "Vous passerez notamment par le fameux site de Yuanjiajie, par un impressionnant pont suspendu (Tiansheng Qiao). Le sentier passe par une montagne récemment rebaptisée « mont Hallelujah d'Avatar », reliée au film à succès Avatar, ce parc céleste donna des idées au réalisateur américain les décors oniriques de la planète Pandora. Du rêve à la réalité, grand angle sur le Parc national de Zhangjiajie. Vous montez un haut plateau par l'ascenseur (le plus haut du monde) panoramique de Bailong qui couvere en moins de 2 minutes les 335m de la falaise jusquà Yuanjiajie. Pour des vues plus reposants, prenez le tramway touristique qui parcourt les paysages de la galerie Dix Milles au fil du canyon.. Le sentier passe par une montagne récemment rebaptisée « mont Hallelujah d'Avatar », reliée au film à succès Avatar. Vous montez un haut plateau par l'ascenseur panoramique de Bailong qui couvere en moins de 2 minutes les 335m de la falaise jusquà Yuanjiajie. Pour des vues plus reposants, prenez le tramway touristique qui parcourt les paysages de la galerie Dix Milles au fil du canyon."
+                "Vous emprunterez une voiture écologique pour atteindre le pied de la Montagne de Tianzi Shan (Réserve naturelle du Tianzi Shan), connue pour ses quatre spectacles naturels aux noms bien poétiques : nuages de brouillard entourant les sommets de la montagne, vues étonnantes du soleil levant, nuit de pleine lune et pics enneigés. Le télésiège vous emportera au sommet, d'où vous découvrirez cette contrée merveilleuse où pics karstiques, forêts et cascades s'entremêlent majestueusement.",
+                "Vous passerez notamment par le fameux site de Yuanjiajie, par un impressionnant pont suspendu (Tiansheng Qiao). Le sentier passe par une montagne récemment rebaptisée « mont Hallelujah d'Avatar », reliée au film à succès Avatar, ce parc céleste donna des idées au réalisateur américain les décors oniriques de la planète Pandora. Du rêve à la réalité, grand angle sur le Parc national de Zhangjiajie."
             ]
         },
         "fhgc":{
@@ -121,6 +121,22 @@ $(function () {
             brief: [
                 "Fenghuang, petite Venise de la Chine ancestrale. La ville, dont le nom signifie «cité du phoenix», est avant tout le berceau de l'ethnie Miao. Prenez la journée pour apprécier tous les charmes de l'ancien bourg de Fenghuang.",
                 "Son architecture, remarquable imbroglio de maisons sur pilotis, de ponts et de passerelles, agrippés aux rives escarpées de la rivière Tuo Jiang, remonte aux dynasties Ming et Qing. Le soir, des guirlandes lumineuses redessinent les façades et les rues résonnent des karaokés bondés et bruyants. Architecture en bois, pierre grise, cours d'eau filant paisiblement, le tout surmonté de montagnes et de brumes sont le lot de ce village classé à l'Unesco."
+            ]
+        },
+        "wall":{
+            title: "Construite dans les arêtes abruptes",
+            pics: ["../../img/images/viewpoints/S_wall2.jpg","../../img/images/viewpoints/S_wall3.jpg","../../img/images/viewpoints/S_wall4.jpg"],
+            brief: [
+                "Quand on parle de la grande muraille de Chine, on pense tout de suite à la grande muraille des Ming de la passe de Shanhaiguan à la passe de Jiayuguan. Mais à Fenghuang Hunnan, au sud de la Chine, il y a aussi une grande muraille pour emprisonner les minorités Miao. Elle a été construite pendant la dynastie Ming, sous le règne de Ming Shenzong (1572 - 1620).",
+                "La Grande Muraille du sud possède de plus de 1300 miradors, forteresses d’inondation, et endroits pour monter la garde etc. Seulement dans le district de Feng Huang, il y a plus de 800 miradors, forteresses d’inondation, et endroits pour monter la garde. À ce moment-là, il y avait 4000-5000 soldats. Le rempart a 3 mètres de haut, 2 mètres de large au fond. Les lieux locaux sont baptisés par ces miradors etc."
+            ]
+        },
+        "canyon":{
+            title: "Le pont en verre le plus long du monde",
+            pics: ["../../img/images/viewpoints/canyon2.jpg","../../img/images/viewpoints/canyon3.jpg"],
+            brief: [
+                "Le 29 septembre 2015, le très célèbre pont de verre de Zhangjiajie a été inauguré. Surplombant le Grand Canyon de Zhangjiajie, ce pont s’élève à 300m au-dessus du vide et s’étend sur 430m de long (pour 6m de large).",
+                "Là où les choses deviennent intéressantes, c’est que ce pont est en grande partie en verre. Vertige et sensations fortes sont donc garantis ! Il est d’ailleurs très facile de trouver en ligne des vidéos de visiteurs figés sur place qui ne peuvent plus avancer. Alors avant de rigoler d’eux, prenez votre courage à deux mains et venez traverser le plus long pont en verre du monde ! Le pont de verre de Zhangjiajie offre une vue d’oiseau à couper le souffle sur le Grand Canyon de Zhangjiajie."
             ]
         },
     };

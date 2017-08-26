@@ -293,13 +293,14 @@ section.t-body{
 .m-pane-body .m-pane-section .schedule-item-body{
     display: inline-block;
     position: absolute;
-    top: 4rem;
+    /*top: 1.5rem;*/
     margin-left: 3rem;
     font-family: Arial;
     font-size: 18px;
 }
 .m-pane-body .m-pane-section .schedule-item-body .schedule-item-section{
     overflow: hidden;
+    margin-top: 20px;
 }
 .schedule-item-section .schedule-lside{
     float: left;
@@ -568,6 +569,7 @@ section.t-body{
     background-color: #F7F7F7;
     box-shadow: 1px 1px 10px 2px #CBCBCA;
     margin: 0 0 1.5rem 0;
+    font-family: Arial;
 }
 .m-pane-body .m-comment-aside .m-comment-card .card-cover img{
     width: 100%;
@@ -581,6 +583,7 @@ section.t-body{
 .m-pane-body .m-comment-aside .m-comment-card .card-comment .card-detail{
     text-indent: 2rem;
     color: #525252;
+    font-family: Arial;
 }
 
 .m-bg-slide{
