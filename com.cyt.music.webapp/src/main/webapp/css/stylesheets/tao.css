@@ -56,14 +56,19 @@ a,a:link,a:visited,a:hover,a:active{
 .home-page .home-section.section-one{
     margin-bottom: 1.5rem;
 }
-.home-page .home-section.section-two .home-brief-title{
-    border-top: 1px solid #c4c4c4;
-    width: 40%;
-    padding: 1rem 0;
+.home-page .home-section.section-two{
+    text-align: center;
 }
 .home-page .home-section.section-three{
+     top: 1rem;
+     text-align: center;
+ }
+.home-page .home-section.section-five{
+    top: 5rem;
     text-align: center;
-    top: -2rem;
+}
+.home-page .home-section.section-four{
+    top: 8rem;
 }
 .home-page .home-section.section-three a{
     display: inline-block;
@@ -88,6 +93,12 @@ a,a:link,a:visited,a:hover,a:active{
 .home-page .home-section .home-section-body{
     width: 80%;
     margin: 0 auto;
+}
+.home-page .home-section .home-section-body .home-brief-item{
+    margin-left: -50px;
+}
+.home-page .home-section .home-section-body .home-brief-item1{
+    margin-left: 10px;
 }
 .home-page .home-section .home-brief-title{
     margin-top: 4rem;
