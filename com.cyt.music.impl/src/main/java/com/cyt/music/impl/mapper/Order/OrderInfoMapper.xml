@@ -11,6 +11,7 @@
     <result column="target" jdbcType="VARCHAR" property="target" />
     <result column="money_sum" jdbcType="VARCHAR" property="moneySum" />
     <result column="passport" jdbcType="VARCHAR" property="passport" />
+    <result column="schedule" jdbcType="VARCHAR" property="schedule" />
   </resultMap>
   <sql id="Base_Column_List">
     id, name, phone, email, room_type, person_num, target, money_sum, passport
@@ -148,7 +149,8 @@
     t.target,
     t.money_sum as moneySum,
     t.passport,
-    t.tx
+    t.tx,
+    t.schedule
     FROM
     order_info t
     <!--<where>-->

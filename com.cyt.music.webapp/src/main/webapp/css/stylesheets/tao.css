@@ -3,6 +3,8 @@ html,body{
     padding: 0;
     height: 100%;
     background-color: #ffffff;
+    min-width: 100%;
+    max-width: 1000px;
 }
 ul{
     margin: 0;
