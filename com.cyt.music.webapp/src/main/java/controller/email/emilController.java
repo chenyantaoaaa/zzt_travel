@@ -1,6 +1,7 @@
 package controller.email;
 
 
+import com.cyt.music.interfaces.pojo.common.Result;
 import com.cyt.music.interfaces.pojo.system.EmailDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,13 +22,15 @@ public class emilController {
 
     @RequestMapping(value = "/sendemail")
     public @ResponseBody
-    void queryOrderInfo(@RequestBody EmailDTO dto) throws Exception {
-        String title="客户意见反馈";
+    Result queryOrderInfo(@RequestBody EmailDTO dto) throws Exception {
+        Result result = new Result();
 
+        String title="客户意见反馈";
         StringBuilder emailStr=new StringBuilder();
         emailStr.append("客户名:").append(dto.getName()).append("  ").append("邮箱地址:").append(dto.getEmail()).append("  ")
                 .append("客户电话:").append(dto.getPhone()).append("  ").append("意见内容:").append(dto.getContent());
-        emailService.sendEmail(emailStr.toString(),title);
+        result.setMsg(emailService.sendEmail(emailStr.toString(),title));
+        return result;
     }
 }
 

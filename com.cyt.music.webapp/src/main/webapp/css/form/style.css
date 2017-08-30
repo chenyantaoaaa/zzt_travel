@@ -409,4 +409,22 @@ FLoating labels
   .js .floating-labels .cd-label {
     top: 20px;
   }
+  .sendBtn {
+    /* button style */
+    border: none;
+    background: #2c97de;
+    border-radius: .25em;
+    padding: 16px 20px;
+    color: #ffffff;
+    font-weight: bold;
+    float: right;
+    cursor: pointer;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+  }
 }

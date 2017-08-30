@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="../../css/form/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="../../css/form/style.css"> <!-- Resource style -->
+    <script src="../../js/form/modernizr.js"></script> <!-- Modernizr -->
+    <script src="../../js/form/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="../../js/jquery.cookie.js" ></script>
+    <title>Contact Form | CodyHouse</title>
+</head>
+<body>
+<form class="cd-form floating-labels">
+    <fieldset>
+        <!--<legend>请填写您的个人信息</legend>-->
+
+        <div class="error-message">
+            <p>Please enter your personal info and advices</p>
+        </div>
+
+        <div class="icon">
+            <label class="cd-label" for="cd-name">Name</label>
+            <input class="user" type="text" name="cd-name" id="cd-name" required>
+        </div>
+
+        <div class="icon">
+            <label class="cd-label" for="cd-phone">Phone</label>
+            <input class="phone" type="text" name="cd-phone" id="cd-phone" required>
+        </div>
+
+        <div class="icon">
+            <label class="cd-label" for="cd-email">Email</label>
+            <input class="email error" type="email" name="cd-email" id="cd-email" required>
+        </div>
+
+        <div class="contact-form-item">
+            <label for="">Votre message</label>
+            <textarea  name="content" id="content"></textarea>
+            <button type="button" name="sendBtn" class="sendBtn" onclick="sendEmail()">发送</button>
+        </div>
+    </fieldset>
+</form>
+<script src="../../js/config.js"></script>
+<script>
+    function sendEmail(){
+        $.ajax({
+            type:'post',
+            url:urlConfig+"email/sendemail.action",
+            contentType:'application/json;charset=utf-8',
+            dataType:"json",
+            data:JSON.stringify({name:$("input[name='cd-name']").val(),phone:$("input[name='cd-phone']").val(),email:$("input[name='cd-email']").val(),content:$("textarea[name='content']").val()}),
+            success:function(data){//返回json结果
+                if(data.msg == "succ"){
+                    alert("send advice success");
+                }else if(data.msg == "fail"){
+                    alert("send advice fail,please try again");
+                }
+            }});
+    }
+
+    $(document).ready(function () {
+
+        if( $('.floating-labels').length > 0 ) floatLabels();
+
+        function floatLabels() {
+            var inputFields = $('.floating-labels .cd-label').next();
+            inputFields.each(function(){
+                var singleInput = $(this);
+                //check if user is filling one of the form fields
+                checkVal(singleInput);
+                singleInput.on('change keyup', function(){
+                    checkVal(singleInput);
+                });
+            });
+        }
+
+        function checkVal(inputField) {
+            ( inputField.val() == '' ) ? inputField.prev('.cd-label').removeClass('float') : inputField.prev('.cd-label').addClass('float');
+        }
+    });
+</script>
+</body>
+</html>

@@ -148,7 +148,6 @@
                 personNum:$("#budget").val(),
                 passport:$("input[name='cd-passport']").val()}),
             success:function(data){//返回json结果
-                alert(data.info);
                 if(data.info == "SUCC"){
                     document.getElementById('suc').style.display='block';
                 }else if(data.info == "FAIL"){

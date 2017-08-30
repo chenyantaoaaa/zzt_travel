@@ -8,8 +8,9 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class EmailLogic {
-    public void sendEmail(String emailStr,String title) throws Exception {
+    public String sendEmail(String emailStr,String title) throws Exception {
         SendmailUtil sendmailUtil=new SendmailUtil();
-        sendmailUtil.sslSend(title,emailStr);
+        String returnStr = sendmailUtil.doSendTextEmail(title,emailStr);
+        return returnStr;
     }
 }

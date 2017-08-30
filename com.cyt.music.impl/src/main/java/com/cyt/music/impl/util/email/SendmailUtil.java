@@ -22,14 +22,15 @@ public class SendmailUtil {
     private static Logger log = Logger.getLogger(SendmailUtil.class);
     // 设置服务器
     private static String KEY_SMTP = "mail.smtp.host";
-    private static String VALUE_SMTP = "smtp.163.com";
+    private static String VALUE_SMTP = "smtp.mxhichina.com";
+//    private static String VALUE_SMTP = "smtp.taoshaome.com";
     // 服务器验证
     private static String KEY_PROPS = "mail.smtp.auth";
     private static boolean VALUE_PROPS = true;
     // 发件人用户名、密码
-    private static String SEND_USER = "freevelbest@163.com";
-    private static String SEND_UNAME = "freevelbest@163.com";
-    private static String SEND_PWD = "a521213";
+    private static String SEND_USER = "postmaster@taoshaome.cn";
+    private static String SEND_UNAME = "postmaster@taoshaome.cn";
+    private static String SEND_PWD = "Aa86358201";
     // 建立会话
     private MimeMessage message;
     private Session s;
@@ -57,7 +58,7 @@ public class SendmailUtil {
      *            邮件头文件名
      *            邮件内容
      */
-    public void doSendTextEmail(String headName, String sendText) {
+    public String doSendTextEmail(String headName, String sendText) {
         try {
             // 发件人
             InternetAddress from = new InternetAddress(SEND_USER);
@@ -77,12 +78,13 @@ public class SendmailUtil {
             // 发送
             transport.sendMessage(message, message.getAllRecipients());
             transport.close();
-            System.out.println("send success!");
+            return "succ";
         } catch (AddressException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
+            return "fail";
         } catch (MessagingException e) {
             e.printStackTrace();
+            return "fail";
         }
     }
 
@@ -103,9 +105,9 @@ public class SendmailUtil {
 //        props.setProperty("mail.smtp.host", emailAccount.getPlace());
         props.setProperty("mail.smtp.socketFactory.class", SSL_FACTORY);
         props.setProperty("mail.smtp.socketFactory.fallback", "false");
-        props.setProperty("mail.smtp.port", "465");
+        props.setProperty("mail.smtp.port", "25");
         props.setProperty("mail.smtp.port.enable", "true");
-        props.setProperty("mail.smtp.socketFactory.port", "465");
+        props.setProperty("mail.smtp.socketFactory.port", "25");
         props.put("mail.smtp.auth", "true");
 
         final String username = SEND_USER;
@@ -118,7 +120,8 @@ public class SendmailUtil {
 
         // 设置发件人和收件人
         msg.setFrom(new InternetAddress(SEND_USER));
-        InternetAddress to = new InternetAddress("yyyvoyage@hotmail.com");
+//        yyyvoyage@hotmail.com
+        InternetAddress to = new InternetAddress("334632474@qq.com");
         // 多个收件人地址
         msg.setRecipient(Message.RecipientType.TO, to);
         msg.setSubject(headName); // 标题
@@ -133,12 +136,13 @@ public class SendmailUtil {
 
     public static void main(String[] args) {
         SendmailUtil se = new SendmailUtil();
-        try {
-            se.sslSend("邮件头文件名", "邮件内容");
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        se.doSendTextEmail("邮件头文件名", "邮件内容");
+//        try {
+//            se.sslSend("邮件头文件名", "邮件内容");
+//        } catch (MessagingException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 }
