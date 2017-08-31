@@ -38,18 +38,19 @@ public class SendmailUtil {
     /*
      * 初始化方法
      */
-    public SendmailUtil() {
-        Properties props = System.getProperties();
-        props.setProperty(KEY_SMTP, VALUE_SMTP);
-        props.put(KEY_PROPS, "true");
-        //props.put("mail.smtp.auth", "true");
-        s =  Session.getDefaultInstance(props, new Authenticator(){
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(SEND_UNAME, SEND_PWD);
-            }});
-        s.setDebug(true);
-        message = new MimeMessage(s);
-    }
+//    public SendmailUtil() {
+//        Properties props = System.getProperties();
+//        props.setProperty(KEY_SMTP, VALUE_SMTP);
+//        props.put(KEY_PROPS, "true");
+//        props.put("mail.smtp.port", "80");
+//        //props.put("mail.smtp.auth", "true");
+//        s =  Session.getDefaultInstance(props, new Authenticator(){
+//            protected PasswordAuthentication getPasswordAuthentication() {
+//                return new PasswordAuthentication(SEND_UNAME, SEND_PWD);
+//            }});
+//        s.setDebug(true);
+//        message = new MimeMessage(s);
+//    }
 
     /**
      * 发送邮件
@@ -88,7 +89,7 @@ public class SendmailUtil {
         }
     }
 
-    public static boolean sslSend(String headName, String sendText)
+    public static String sslSend(String headName, String sendText)
             throws AddressException, MessagingException, IOException {
         log.info("sslSend");
         MailSSLSocketFactory sf = null;
@@ -103,11 +104,11 @@ public class SendmailUtil {
         // Get a Properties object
         Properties props = new Properties();
 //        props.setProperty("mail.smtp.host", emailAccount.getPlace());
+        props.setProperty("mail.smtp.host", "smtp.mxhichina.com");
         props.setProperty("mail.smtp.socketFactory.class", SSL_FACTORY);
         props.setProperty("mail.smtp.socketFactory.fallback", "false");
-        props.setProperty("mail.smtp.port", "25");
         props.setProperty("mail.smtp.port.enable", "true");
-        props.setProperty("mail.smtp.socketFactory.port", "25");
+        props.put("mail.smtp.port", "465");
         props.put("mail.smtp.auth", "true");
 
         final String username = SEND_USER;
@@ -121,7 +122,7 @@ public class SendmailUtil {
         // 设置发件人和收件人
         msg.setFrom(new InternetAddress(SEND_USER));
 //        yyyvoyage@hotmail.com
-        InternetAddress to = new InternetAddress("334632474@qq.com");
+        InternetAddress to = new InternetAddress("yyyvoyage@hotmail.com");
         // 多个收件人地址
         msg.setRecipient(Message.RecipientType.TO, to);
         msg.setSubject(headName); // 标题
@@ -129,20 +130,20 @@ public class SendmailUtil {
         msg.setSentDate(new Date());
         Transport.send(msg);
         System.out.println("EmailUtil ssl协议邮件发送打印" +msg.toString());
-        return true;
+        return "succ";
     }
 
 
 
     public static void main(String[] args) {
         SendmailUtil se = new SendmailUtil();
-        se.doSendTextEmail("邮件头文件名", "邮件内容");
-//        try {
-//            se.sslSend("邮件头文件名", "邮件内容");
-//        } catch (MessagingException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+//        se.doSendTextEmail("邮件头文件名", "邮件内容");
+        try {
+            se.sslSend("邮件头文件名", "邮件内容");
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
