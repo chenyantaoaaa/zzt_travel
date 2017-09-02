@@ -42,9 +42,13 @@ a,a:link,a:visited,a:hover,a:active{
 }
 .home-page .t-nav{
     color: #000000;
-    position: absolute;
+    /*position: absolute;*/
     width: 100%;
-    z-index: 999;
+    z-index: 1500;
+    position:fixed;
+    top:0;
+    left:0;
+    /*background: #a3a3a3;*/
 }
 .home-page .t-nav .right-title{
     position: absolute;
