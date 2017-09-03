@@ -8,42 +8,55 @@
 
     <link rel="stylesheet" href="../../css/form/reset.css"> <!-- CSS reset -->
     <link rel="stylesheet" href="../../css/form/style.css"> <!-- Resource style -->
+    <link rel="stylesheet" href="../../css/stylesheets/tao.css">
     <script src="../../js/form/modernizr.js"></script> <!-- Modernizr -->
     <script src="../../js/form/jquery-2.1.1.js"></script>
     <script type="text/javascript" src="../../js/jquery.cookie.js" ></script>
     <title>Contact Form | CodyHouse</title>
 </head>
-<body>
-<form class="cd-form floating-labels">
-    <fieldset>
-        <!--<legend>请填写您的个人信息</legend>-->
+<body style="background-image: url(../../img/images/others/contact_banner.jpg);margin-top: -1.2%">
+    <div id="contactLogo">
+        <img src="../../img/images/others/logo.png"/>
+    </div>
+    <form class="cd-form floating-labels">
+        <fieldset>
+            <!--<legend>请填写您的个人信息</legend>-->
 
-        <div class="error-message">
-            <p>Please enter your personal info and advices</p>
-        </div>
+            <div class="error-message">
+                <p>Please enter your personal info and advices</p>
+            </div>
 
-        <div class="icon">
-            <label class="cd-label" for="cd-name">Name</label>
-            <input class="user" type="text" name="cd-name" id="cd-name" required>
-        </div>
+            <div class="icon">
+                <label class="cd-label" for="cd-name" style="color: #000000;">Name</label>
+                <input class="user" type="text" name="cd-name" id="cd-name" required style="background: #ffffff">
+            </div>
 
-        <div class="icon">
-            <label class="cd-label" for="cd-phone">Phone</label>
-            <input class="phone" type="text" name="cd-phone" id="cd-phone" required>
-        </div>
+            <div class="icon">
+                <label class="cd-label" for="cd-phone" style="color: #000000;">Phone</label>
+                <input class="phone" type="text" name="cd-phone" id="cd-phone" required>
+            </div>
 
-        <div class="icon">
-            <label class="cd-label" for="cd-email">Email</label>
-            <input class="email error" type="email" name="cd-email" id="cd-email" required>
-        </div>
+            <div class="icon">
+                <label class="cd-label" for="cd-email" style="color: #000000;">Email</label>
+                <input class="email error" type="email" name="cd-email" id="cd-email" required style="background: #ffffff">
+            </div>
 
-        <div class="contact-form-item">
-            <label for="">Votre message</label>
-            <textarea  name="content" id="content"></textarea>
-            <button type="button" name="sendBtn" class="sendBtn" onclick="sendEmail()">发送</button>
+            <div class="contact-form-item">
+                <label for="" style="font-size: 18px;color: #ffffff">Your advices and Consultation</label>
+                <textarea  name="content" id="content" style="margin-top: 1rem"></textarea>
+                <button type="button" name="sendBtn" class="sendBtn" onclick="sendEmail()">发送</button>
+            </div>
+        </fieldset>
+    </form>
+    <div id="contactWords">
+        <p id="Fir">Contactez-nous par email via le formulaire ci-dessous, nous vous répondrons sous un délai de 48 heures maximum.</p>
+        <div style="padding-top: 1rem">
+            <p>Contact nous :</p>
+            <p>Adresse e-mail : yyyvoyage@hotmail.com</p>
+            <p>Numéro de contact : +86 15527361651</p>
+            <p>Adresse : Shanghai Pudong Deping road 289</p>
         </div>
-    </fieldset>
-</form>
+    </div>
 <script src="../../js/config.js"></script>
 <script>
     function sendEmail(){

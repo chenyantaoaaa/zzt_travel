@@ -42,13 +42,9 @@ a,a:link,a:visited,a:hover,a:active{
 }
 .home-page .t-nav{
     color: #000000;
-    /*position: absolute;*/
+    position: absolute;
     width: 100%;
     z-index: 1500;
-    position:fixed;
-    top:0;
-    left:0;
-    /*background: #a3a3a3;*/
 }
 .home-page .t-nav .right-title{
     position: absolute;
@@ -70,7 +66,7 @@ a,a:link,a:visited,a:hover,a:active{
      text-align: center;
  }
 .home-page .home-section.section-five{
-    top: 5rem;
+    top: 1rem;
     text-align: center;
 }
 .home-page .home-section.section-four{
@@ -202,7 +198,6 @@ section.t-body{
 .t-nav ul.right-title{
     float: right;
 }
-
 .m-brief{
     position: absolute;
     top: 10rem;
@@ -218,17 +213,7 @@ section.t-body{
 }
 .m-brief .m-brief-btn{
     float: right;
-    display: inline-block;
-    width: 24rem;
-    height: 5rem;
     margin-top: 3rem;
-    font-size: 2rem;
-    color: #ffffff;
-    line-height: 5rem;
-    text-align: center;
-    background: linear-gradient(60deg,#FC5E27,#FD9556,#FEB080,#FDA066,#FC5E27);
-    border-radius: .5rem;
-    cursor: pointer;
 }
 .m-brief .m-brief-btn label{
     font-weight: 900;
@@ -748,5 +733,25 @@ section.t-body{
 
 #detailFalse li {
     font-family: Arial;
+    font-size: 20px;
+}
+
+#contactLogo{
+    float: left;
+    padding: 7% 12%;
+    width: 30%;
+}
+
+#contactWords{
+    font-family: Arial;
+    position: absolute;
+    margin-left: 13%;
+    margin-top: 26.5%;
+    width: 27%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+#Fir{
     font-size: 20px;
 }
