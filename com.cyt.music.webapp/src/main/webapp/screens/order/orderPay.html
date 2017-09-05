@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <!--<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>-->
 
     <link rel="stylesheet" href="../../css/form/reset.css"> <!-- CSS reset -->
     <link rel="stylesheet" href="../../css/form/style1.css"> <!-- Resource style -->
@@ -113,11 +113,11 @@
         <!--<div>-->
             <!--<input type="submit" value="Send Message">-->
         <!--</div>-->
-        <br><input type="submit" name="btn" id="btn" value="保存" onclick="demoQuery2()"/></br>
+        <br><input type="button" name="btn" id="btn" value="保存" onclick="demoQuery2()"/></br>
 
     </fieldset>
 </form>
-<form class="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<form class="paypal" id="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
     <input type="hidden" name="cmd" value="_s-xclick">
     <input type="hidden" name="hosted_button_id" value="XN65M4S3NS5FL">
     <!--<input type="image"  src="https://www.sandbox.paypal.com/zh_XC/C2/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal——最安全便捷的在线支付方式！">-->
@@ -158,7 +158,8 @@
                 roomType:roomType,
                 email:$("input[name='cd-email']").val(),
                 personNum:$("#budget").val(),
-                passport:$("input[name='cd-passport']").val()}),
+                passport:$("input[name='cd-passport']").val(),
+                schedule:$("#budget1").val()}),
             success:function(data){//返回json结果
                 if(data.info == "SUCC"){
                     document.getElementById('suc').style.display='block';
@@ -175,6 +176,9 @@
         if(typeof($.cookie("personNum"))!="undefined"){
             $("#budget").val($.cookie("personNum"));
         }
+        if(typeof($.cookie("schedule"))!="undefined"){
+            $("#budget1").val($.cookie("schedule"));
+        }
         $("input[name='cd-passport']").val($.cookie("passport"));
         if($.cookie("roomType")=="2"){
             $("#cd-radio-2").attr("checked","checked");
@@ -183,6 +187,10 @@
         }
         if(GetQueryString("tx")!=null){
             demoQuery();
+        }
+
+        if(typeof($.cookie("name"))!="undefined"){
+            document.getElementById('paypal').style.display='block';
         }
 
         if( $('.floating-labels').length > 0 ) floatLabels();
@@ -225,14 +233,39 @@
             url:urlConfig+"order/saveCustomInfo.action",
             contentType:'application/json;charset=utf-8',
             dataType:"json",
-            //数据格式是json串，商品信息
             data:JSON.stringify({name:$("input[name='cd-name']").val(),
                 phone:$("input[name='cd-phone']").val(),
                 roomType:roomType,
                 email:$("input[name='cd-email']").val(),
                 personNum:$("#budget").val(),
-                passport:$("input[name='cd-passport']").val()}),
+                passport:$("input[name='cd-passport']").val(),
+                schedule:$("#budget1").val()}),
             success:function(data){//返回json结果
+                if(data.msg == "succ"){
+                    if(typeof($.cookie("name"))!="undefined"){
+                        alert("保存信息成功");
+                    }else{
+                        alert("保存信息失败");
+                        return;
+                    }
+                    $("input[name='cd-name']").val($.cookie("name"));
+                    $("input[name='cd-phone']").val($.cookie("phone"));
+                    $("input[name='cd-email']").val($.cookie("email"));
+                    if(typeof($.cookie("personNum"))!="undefined"){
+                        $("#budget").val($.cookie("personNum"));
+                    }
+                    if(typeof($.cookie("schedule"))!="undefined"){
+                        $("#budget1").val($.cookie("schedule"));
+                    }
+                    $("input[name='cd-passport']").val($.cookie("passport"));
+                    if($.cookie("roomType")=="2"){
+                        $("#cd-radio-2").attr("checked","checked");
+                    }else{
+                        $("#cd-radio-1").attr("checked","checked");
+                    }
+                }else{
+                    alert("保存信息失败");
+                }
             }});
     }
 

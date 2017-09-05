@@ -22,7 +22,7 @@
         e.preventDefault();
         $(".last").removeClass("last");
         $('.current').addClass("last");
-        var id = $(e.target).attr("href");
+        var id = $(e.target).data("href") || $(e.target).attr("href");
         $(e.target).closest("li").addClass("active").siblings().removeClass("active");
         $(id).addClass("active").siblings().removeClass("active");
         var liWidth = $(".m-bg-slide").width();

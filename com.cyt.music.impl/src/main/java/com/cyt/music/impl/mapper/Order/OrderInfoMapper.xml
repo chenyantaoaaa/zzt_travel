@@ -29,11 +29,11 @@
   <insert id="insert" parameterType="com.cyt.music.interfaces.pojo.order.OrderInfo">
     insert into order_info (id, name, phone, 
       email, room_type, person_num, 
-      target, money_sum, passport,tx
+      target, money_sum, passport,tx,schedule
       )
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{roomType,jdbcType=VARCHAR}, #{personNum,jdbcType=VARCHAR}, 
-      #{target,jdbcType=VARCHAR}, #{moneySum,jdbcType=VARCHAR}, #{passport,jdbcType=VARCHAR},#{tx,jdbcType=VARCHAR}
+      #{target,jdbcType=VARCHAR}, #{moneySum,jdbcType=VARCHAR}, #{passport,jdbcType=VARCHAR},#{tx,jdbcType=VARCHAR},#{schedule,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.cyt.music.interfaces.pojo.order.OrderInfo">
