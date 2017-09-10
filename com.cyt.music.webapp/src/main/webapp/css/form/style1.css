@@ -32,6 +32,7 @@ a {
   height:100px;
   margin-left:-100px;
   margin-top:-50px;
+  display: none;
 }
 /* -------------------------------- 
 
@@ -237,7 +238,7 @@ Form
   resize: vertical;
   overflow: auto;
 }
-.cd-form input[type="submit"] {
+.cd-form input[type="button"] {
   /* button style */
   border: none;
   background: #2c97de;

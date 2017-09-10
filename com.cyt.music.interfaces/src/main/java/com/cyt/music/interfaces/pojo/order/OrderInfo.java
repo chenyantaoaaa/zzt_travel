@@ -21,6 +21,16 @@ public class OrderInfo {
 
     private String tx;
 
+    private String schedule;
+
+    public String getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(String schedule) {
+        this.schedule = schedule;
+    }
+
     public String getTx() {
         return tx;
     }

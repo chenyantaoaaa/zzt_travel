@@ -1,6 +1,7 @@
 package controller.order;
 
 import com.cyt.music.interfaces.pojo.common.PageResultForBootstrap;
+import com.cyt.music.interfaces.pojo.common.Result;
 import com.cyt.music.interfaces.pojo.order.OrderInfo;
 import com.cyt.music.interfaces.pojo.order.PayInfo;
 import com.cyt.music.interfaces.pojo.order.PayRes;
@@ -67,13 +68,16 @@ public class OrderController {
     }
 
     @RequestMapping(value = "/saveCustomInfo")
-    public void saveCustomInfo(@RequestBody OrderInfo dto, HttpServletResponse response, HttpServletRequest request) throws Exception {
+    public @ResponseBody
+    Result saveCustomInfo(@RequestBody OrderInfo dto, HttpServletResponse response, HttpServletRequest request) throws Exception {
+        Result result = new Result();
         Cookie cookieN = new Cookie("name", dto.getName());
         Cookie cookieP = new Cookie("phone", dto.getPhone());
         Cookie cookieE = new Cookie("email", dto.getEmail());
        Cookie cookieM = new Cookie("moneySum", dto.getMoneySum());
         Cookie cookiePA = new Cookie("passport", dto.getPassport());
         Cookie cookiePE = new Cookie("personNum", dto.getPersonNum());
+        Cookie cookieTT = new Cookie("schedule", dto.getSchedule());
         Cookie cookieR = new Cookie("roomType", dto.getRoomType());
         cookieN.setMaxAge(30 * 60);// 设置为30min
         cookieN.setPath("/");
@@ -89,6 +93,8 @@ public class OrderController {
         cookiePE.setPath("/");
         cookieR.setMaxAge(30 * 60);// 设置为30min
         cookieR.setPath("/");
+        cookieTT.setMaxAge(30 * 60);// 设置为30min
+        cookieTT.setPath("/");
         response.addCookie(cookieN);
         response.addCookie(cookieP);
         response.addCookie(cookieE);
@@ -96,5 +102,8 @@ public class OrderController {
         response.addCookie(cookiePA);
         response.addCookie(cookiePE);
         response.addCookie(cookieR);
+        response.addCookie(cookieTT);
+        result.setMsg("succ");
+        return result;
     }
 }
