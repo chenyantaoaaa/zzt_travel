@@ -244,9 +244,10 @@ Form
   background: #2c97de;
   border-radius: .25em;
   padding: 16px 20px;
+  margin-left: 40%;
   color: #ffffff;
   font-weight: bold;
-  float: right;
+  /*float: right;*/
   cursor: pointer;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -255,6 +256,7 @@ Form
   -ms-appearance: none;
   -o-appearance: none;
   appearance: none;
+  font-family: Arial;
 }
 .no-touch .cd-form input[type="submit"]:hover {
   background: #42a2e1;
@@ -298,6 +300,7 @@ Form
   .cd-form h4, .cd-form .cd-label {
     font-size: 1.4rem;
     margin-bottom: 10px;
+    font-family: Arial;
   }
   .cd-form input[type="text"],
   .cd-form input[type="email"],
@@ -351,7 +354,7 @@ Custom icons
   background: url("../../img/form/cd-icon-user.svg") no-repeat 16px center;
 }
 .cd-form [required].user {
-  background: url("../../img/form/cd-icon-user.svg") no-repeat 16px center, url("../../img/form/cd-required.svg") no-repeat top right;
+  background: url("../../img/form/person.jpg") no-repeat 16px center, url("../../img/form/cd-required.svg") no-repeat top right;
 }
 .cd-form .company {
   background: url("../../img/form/cd-icon-company.svg") no-repeat 16px center;
@@ -363,10 +366,19 @@ Custom icons
   background: url("../../img/form/cd-icon-email.svg") no-repeat 16px center;
 }
 .cd-form [required].email {
-  background: url("../../img/form/cd-icon-email.svg") no-repeat 16px center, url("../../img/form/cd-required.svg") no-repeat top right;
+  background: url("../../img/form/letter.jpg") no-repeat 16px center, url("../../img/form/cd-required.svg") no-repeat top right;
+}
+.cd-form [required].passport {
+  background: url("../../img/form/passport.jpg") no-repeat 16px center, url("../../img/form/cd-required.svg") no-repeat top right;
+}
+.cd-form [required].phone {
+  background: url("../../img/form/tel.jpg") no-repeat 16px center, url("../../img/form/cd-required.svg") no-repeat top right;
 }
 .cd-form .budget {
-  background: url("../../img/form/cd-icon-budget.svg") no-repeat 16px center;
+  background: url("../../img/form/date_img.jpg") no-repeat 16px center;
+}
+.cd-form .budget1 {
+  background: url("../../img/form/date_img.jpg") no-repeat 16px center;
 }
 .cd-form .message {
   background: url("../../img/form/cd-icon-message.svg") no-repeat 16px 16px;
@@ -428,4 +440,16 @@ FLoating labels
     -o-appearance: none;
     appearance: none;
   }
+}
+
+#suc{
+  text-align: center;
+  font-family: Arial;
+  font-size: 24px;
+}
+
+#fai{
+  text-align: center;
+  font-family: Arial;
+  font-size: 24px;
 }

@@ -14,21 +14,29 @@
     <title>Contact Form | CodyHouse</title>
 </head>
 <body>
+<!--style="display:none;"-->
 <form class="cd-form floating-labels">
+    <div id="suc" style="display:none;">
+        <p style="color: #3ce000;padding-top: 1rem">Votre commande est validée</p>
+        <p style="font-size: 18px;padding-top: 3rem">Nous vous répondrons dans un délai maximum de 48 heures</p>
+    </div>
+    <div id="fai" style="display:none;">
+        <p style="color: #ff0000;padding-top: 1rem">Votre commande est validée</p>
+    </div>
     <fieldset>
-        <legend>请填写您的个人信息</legend>
+        <!--<legend>请填写您的个人信息</legend>-->
 
         <div class="error-message">
-            <p>Please enter a valid email address</p>
+            <p style="font-family: Arial;font-size: 18px">Informations nécessaires</p>
         </div>
 
         <div class="icon">
-            <label class="cd-label" for="cd-name">Name</label>
+            <label class="cd-label" for="cd-name">Nom et prénom</label>
             <input class="user" type="text" name="cd-name" id="cd-name" required>
         </div>
 
         <div class="icon">
-            <label class="cd-label" for="cd-phone">Phone</label>
+            <label class="cd-label" for="cd-phone">Numéro de portable</label>
             <input class="phone" type="text" name="cd-phone" id="cd-phone" required>
         </div>
 
@@ -38,28 +46,28 @@
         </div>
 
         <div class="icon">
-            <label class="cd-label" for="cd-passport">PassPortNum</label>
+            <label class="cd-label" for="cd-passport">Numéro de passeport</label>
             <input class="passport" type="text" name="cd-passport" id="cd-passport" required>
         </div>
     </fieldset>
 
     <fieldset>
-        <legend>请填写您的项目信息</legend>
+        <!--<legend>请填写您的项目信息</legend>-->
+
+        <!--<div>-->
+            <!--<h4>希望成团人数</h4>-->
+            <!--<p class="cd-select icon">-->
+                <!--<select class="budget" id="budget">-->
+                    <!--<option value="1">1人</option>-->
+                    <!--<option value="2">2人</option>-->
+                    <!--<option value="3">3人</option>-->
+                    <!--<option value="4">4人</option>-->
+                <!--</select>-->
+            <!--</p>-->
+        <!--</div>-->
 
         <div>
-            <h4>希望成团人数</h4>
-            <p class="cd-select icon">
-                <select class="budget" id="budget">
-                    <option value="1">1人</option>
-                    <option value="2">2人</option>
-                    <option value="3">3人</option>
-                    <option value="4">4人</option>
-                </select>
-            </p>
-        </div>
-
-        <div>
-            <h4>希望出发时间</h4>
+            <h4>Date de départ</h4>
             <p class="cd-select icon">
                 <select class="budget" id="budget1">
                     <option value="2017-10-28">2017-10-28</option>
@@ -71,15 +79,15 @@
         </div>
 
         <div>
-            <h4>房间类型</h4>
+            <h4>type de chambre</h4>
             <ul class="cd-form-list">
                 <li>
                     <input type="radio" name="radio-button" id="cd-radio-1" checked>
-                    <label for="cd-radio-1">标准双人间</label>
+                    <label for="cd-radio-1" style="font-family: Arial">2 lits simples</label>
                 </li>
                 <li>
                     <input type="radio" name="radio-button" id="cd-radio-2">
-                    <label for="cd-radio-2">标准大床房</label>
+                    <label for="cd-radio-2" style="font-family: Arial">1 grand lit doubled</label>
                 </li>
             </ul>
         </div>
@@ -113,7 +121,11 @@
         <!--<div>-->
             <!--<input type="submit" value="Send Message">-->
         <!--</div>-->
-        <br><input type="button" name="btn" id="btn" value="保存" onclick="demoQuery2()"/></br>
+
+        <br>
+            <input type="button" name="btn" id="btn" value="Enregistrer" onclick="demoQuery2()"/>
+            <div style="font-family: Arial; font-size: 14px; text-align: center" >Veuillez bien enregistré votre information avant la paiement</div>
+        </br>
 
     </fieldset>
 </form>
@@ -138,8 +150,6 @@
     <!--<input type="image" src="https://www.sandbox.paypal.com/zh_XC/C2/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal——最安全便捷的在线支付方式！">-->
     <!--<img alt="" border="0" src="https://www.sandbox.paypal.com/zh_XC/i/scr/pixel.gif" width="1" height="1">-->
 <!--</form>-->
-<div id="suc" style="display:none;">支付成功了</div>
-<div id="fai" style="display:none;">很抱歉,支付失败了</div>
 <script src="../../js/config.js"></script>
 <script>
 //    var roomType = "";
@@ -243,6 +253,7 @@
             success:function(data){//返回json结果
                 if(data.msg == "succ"){
                     if(typeof($.cookie("name"))!="undefined"){
+                        document.getElementById('paypal').style.display='block';
                         alert("保存信息成功");
                     }else{
                         alert("保存信息失败");
