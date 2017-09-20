@@ -66,14 +66,14 @@ public class HttpUtil {
         try {
             HttpPost post = new HttpPost(url);
             //创建参数列表
-            List<NameValuePair> list = new ArrayList<NameValuePair>();
-            list.add(new BasicNameValuePair("amt", "10"));
-            list.add(new BasicNameValuePair("cc", "EUR"));
-            list.add(new BasicNameValuePair("item_name", "test物品"));
-            list.add(new BasicNameValuePair("st", "Pending"));
-            list.add(new BasicNameValuePair("tx", "5W309588MM226883W"));
-            list.add(new BasicNameValuePair("at", "WivpNtUYlYsV6h7socwoaRGguEL19Uu541QR81dK0k-EBHobEBSMx7XIK28"));
-            list.add(new BasicNameValuePair("cmd", "_notify-synch"));
+//            List<NameValuePair> list = new ArrayList<NameValuePair>();
+//            list.add(new BasicNameValuePair("amt", "0.10"));
+//            list.add(new BasicNameValuePair("cc", "EUR"));
+//            list.add(new BasicNameValuePair("item_name", null));
+//            list.add(new BasicNameValuePair("st", "Completed"));
+//            list.add(new BasicNameValuePair("tx", "2N5899090P519690W"));
+//            list.add(new BasicNameValuePair("at", "CCs8kTCxktMBax3Oy3KvhNzzujMtBEZdyiYPxjhuKtn1SQMQvddpyt0Lgr0"));
+//            list.add(new BasicNameValuePair("cmd", "_notify-synch"));
             //url格式编码
             post.setHeader("Content-type","application/x-www-form-urlencoded");
             UrlEncodedFormEntity uefEntity = new UrlEncodedFormEntity(params,"UTF-8");
@@ -86,7 +86,7 @@ public class HttpUtil {
                 String returnStr =  EntityUtils.toString(entity);
                 if (null != entity){
                     System.out.println("-------------------------------------------------------");
-                    System.out.println(returnStr);
+                    System.out.println(returnStr.substring(0,4));
                     System.out.println("-------------------------------------------------------");
                 }
                 return returnStr;
@@ -120,8 +120,8 @@ public class HttpUtil {
     }
 
     public static void main(String[] args) {
+        String url="https://www.paypal.com/cgi-bin/webscr";
         HttpUtil httpUtil=new HttpUtil();
-//        httpUtil.requestByPostMethod();
-//        paypalTest.requestByGetMethod();s
+        httpUtil.requestByPostMethod(url,null);
     }
 }

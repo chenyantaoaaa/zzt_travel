@@ -27,11 +27,11 @@ a {
 
 .paypal{
   position: absolute;
-  left: 50%;
+  left: 47.5%;
   width:400px;
   height:100px;
   margin-left:-100px;
-  margin-top:-50px;
+  margin-top:-100px;
   display: none;
 }
 /* -------------------------------- 
@@ -351,7 +351,7 @@ Custom icons
   padding-left: 54px !important;
 }
 .cd-form .user {
-  background: url("../../img/form/cd-icon-user.svg") no-repeat 16px center;
+  background: url("../../img/form/person.jpg") no-repeat 16px center;
 }
 .cd-form [required].user {
   background: url("../../img/form/person.jpg") no-repeat 16px center, url("../../img/form/cd-required.svg") no-repeat top right;
@@ -363,16 +363,16 @@ Custom icons
   background: url("../../img/form/cd-icon-company.svg") no-repeat 16px center, url("../../img/form/cd-required.svg") no-repeat top right;
 }
 .cd-form .email {
-  background: url("../../img/form/cd-icon-email.svg") no-repeat 16px center;
+  background: url("../../img/form/letter.jpg") no-repeat 16px center;
 }
 .cd-form [required].email {
   background: url("../../img/form/letter.jpg") no-repeat 16px center, url("../../img/form/cd-required.svg") no-repeat top right;
 }
-.cd-form [required].passport {
-  background: url("../../img/form/passport.jpg") no-repeat 16px center, url("../../img/form/cd-required.svg") no-repeat top right;
+.cd-form .passport {
+  background: url("../../img/form/passport.jpg") no-repeat 16px center;
 }
-.cd-form [required].phone {
-  background: url("../../img/form/tel.jpg") no-repeat 16px center, url("../../img/form/cd-required.svg") no-repeat top right;
+.cd-form .phone {
+  background: url("../../img/form/tel.jpg") no-repeat 16px center;
 }
 .cd-form .budget {
   background: url("../../img/form/date_img.jpg") no-repeat 16px center;

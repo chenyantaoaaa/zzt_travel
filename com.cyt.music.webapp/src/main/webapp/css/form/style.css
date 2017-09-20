@@ -350,7 +350,7 @@ Custom icons
   padding-left: 54px !important;
 }
 .cd-form .user {
-  background: url("../../img/form/cd-icon-user.svg") no-repeat 16px center;
+  background: url("../../img/form/person.jpg") no-repeat 16px center;
 }
 .cd-form [required].user {
   background: url("../../img/form/cd-icon-user.svg") no-repeat 16px center, url("../../img/form/cd-required.svg") no-repeat top right;
@@ -362,13 +362,16 @@ Custom icons
   background: url("../../img/form/cd-icon-company.svg") no-repeat 16px center, url("../../img/form/cd-required.svg") no-repeat top right;
 }
 .cd-form .email {
-  background: url("../../img/form/cd-icon-email.svg") no-repeat 16px center;
+  background: url("../../img/form/letter.jpg") no-repeat 16px center;
 }
 .cd-form [required].email {
   background: url("../../img/form/cd-icon-email.svg") no-repeat 16px center, url("../../img/form/cd-required.svg") no-repeat top right;
 }
 .cd-form .budget {
   background: url("../../img/form/cd-icon-budget.svg") no-repeat 16px center;
+}
+.cd-form .phone {
+  background: url("../../img/form/tel.jpg") no-repeat 16px center;
 }
 .cd-form .message {
   background: url("../../img/form/cd-icon-message.svg") no-repeat 16px 16px;

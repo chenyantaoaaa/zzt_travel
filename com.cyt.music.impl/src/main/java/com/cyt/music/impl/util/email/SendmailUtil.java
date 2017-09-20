@@ -122,7 +122,7 @@ public class SendmailUtil {
         // 设置发件人和收件人
         msg.setFrom(new InternetAddress(SEND_USER));
 //        yyyvoyage@hotmail.com
-        InternetAddress to = new InternetAddress("yyyvoyage@hotmail.com");
+        InternetAddress to = new InternetAddress("yyyvoyage@gmail.com");
         // 多个收件人地址
         msg.setRecipient(Message.RecipientType.TO, to);
         msg.setSubject(headName); // 标题

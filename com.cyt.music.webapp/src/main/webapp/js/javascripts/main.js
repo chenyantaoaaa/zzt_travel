@@ -162,6 +162,13 @@ $(function () {
         $(".right-side header").text("");
         $(".modal-view-point").css("display","none");
     });
+    $(".modal-view-point").on("click", function () {
+        $("body").css("overflow","auto");
+        $(".left-side").empty();
+        $(".right-side section").empty();
+        $(".right-side header").text("");
+        $(".modal-view-point").css("display","none");
+    });
     $(".hotel-image img").on("click",function (e) {
         e.stopPropagation();
         $("body").css("overflow","hidden");

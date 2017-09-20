@@ -47,15 +47,18 @@ public class OrderController {
     @RequestMapping(value = "/getPayInfo")
     public @ResponseBody PayRes addOrderInfo(@RequestBody PayInfo payInfo) throws Exception {
         PayRes payRes = new PayRes();
-        String url="https://www.sandbox.paypal.com/cgi-bin/webscr";
+//        String url="https://www.sandbox.paypal.com/cgi-bin/webscr";
+        String url="https://www.paypal.com/cgi-bin/webscr";
         List<NameValuePair> list = new ArrayList<NameValuePair>();
+        String at = "CCs8kTCxktMBax3Oy3KvhNzzujMtBEZdyiYPxjhuKtn1SQMQvddpyt0Lgr0";
         list.add(new BasicNameValuePair("amt",payInfo.getAmt()));
         list.add(new BasicNameValuePair("cc", payInfo.getCc()));
         list.add(new BasicNameValuePair("item_name", payInfo.getItem_name()));
         list.add(new BasicNameValuePair("st", payInfo.getSt()));
         list.add(new BasicNameValuePair("tx", payInfo.getTx()));
-        list.add(new BasicNameValuePair("at", "WivpNtUYlYsV6h7socwoaRGguEL19Uu541QR81dK0k-EBHobEBSMx7XIK28"));
+        list.add(new BasicNameValuePair("at", at));
         list.add(new BasicNameValuePair("cmd", "_notify-synch"));
+        System.out.println(at);
         String returnMsg = orderInfoService.getPayInfo(url,list);
         OrderInfo dto=new OrderInfo();
         if("SUCC".equals(returnMsg)){//如果付款成功 则记入客户填写的信息
