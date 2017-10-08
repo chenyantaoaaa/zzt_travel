@@ -92,7 +92,7 @@ $(function () {
         },
         "tzfjq":{
             title: "Tianzishan",
-            pics: ["../../img/images/viewpoints/tzs2.jpg","../../img/images/viewpoints/6-3_277_346.png","../../img/images/viewpoints/6-4_277_346.png"],
+            pics: ["../../img/images/viewpoints/tms2.jpg","../../img/images/viewpoints/6-3_277_346.png","../../img/images/viewpoints/6-4_277_346.png"],
             brief: [
                 "La réserve naturelle de Tianzi Shan est l’endroit idéal où se plonger en pleine nature. Il suffit d’emprunter le téléphérique du site pour atteindre les sommets escarpés de Tianzishan. Là, l’Homme se rend compte à quel point il n’est rien comparé à la nature.",
                 "Tianzi Shan est principal constitué de cascades, de ponts, de forêts de pierre et de grottes. Cependant, 4 spectacles naturels sont considérés comme incontournables pour tout voyageur visitant Tianzishan : nuages de brouillard entourant les sommets de la montagne, vue étonnantes du soleil levant, nuit de pleine lune et pics enneigés. Vous l’aurez donc compris, ce n’est pas en visitant le site une demi-journée que vous pourrez admirer les plus jolis paysages de Tianzishan. Heureusement, 80 plateformes d’observations ont été installées pour donner plus d’opportunité d’apercevoir ces paysages mystiques."
@@ -139,6 +139,28 @@ $(function () {
                 "Là où les choses deviennent intéressantes, c’est que ce pont est en grande partie en verre. Vertige et sensations fortes sont donc garantis ! Il est d’ailleurs très facile de trouver en ligne des vidéos de visiteurs figés sur place qui ne peuvent plus avancer. Alors avant de rigoler d’eux, prenez votre courage à deux mains et venez traverser le plus long pont en verre du monde ! Le pont de verre de Zhangjiajie offre une vue d’oiseau à couper le souffle sur le Grand Canyon de Zhangjiajie."
             ]
         },
+        "wt":{
+            title: "Le Bund est le symbole de la ville de shanghai",
+            pics: ["../../img/images/viewpoints/wt2.jpg","../../img/images/viewpoints/wt3.jpg"],
+            brief: [
+                "Le Bund, un boulevard de Shanghai longeant les rives du fleuve Huangpu Jiang, est un lieu de promenade fort apprécié. Bordé par une chaîne de bâtiments coloniaux abritant des banques, des consulats et des hôtels, il constitue le lieu de rencontre favori des habitants de la ville. Le caractère historique du Bund contraste fortement avec les immeubles modernes de Shanghai, situés de l'autre côté du fleuve."
+            ]
+        },
+        "jbx":{
+            title: "L’eau cristalline, les allées ombragée",
+            pics: ["../../img/images/viewpoints/jbx2.png","../../img/images/viewpoints/jbx3.png"],
+            brief: [
+                "Le ruisseau Jinbian est situé dans la partie d’est du parc national forestier de Zhangjiajie. Le ruisseau d’une longueur de 6 km du sud au nord serpente au fond des montagnes. Le ruisseau Jinbian zigzague dans une vallée profonde et est bordé de fleurs et d'herbes qui rivalisent de beauté. L’eau est limpide, les pics escarpés. Le gazouillis des oiseaux et le chant des cigales ajoutent au charme de l’endroit. Il est célèbre pour la gorge Jinbian, l’une des plus belles gorges du monde, un site à voir absolument. La gorge a une hauteur de 382 km et ressemble à un aigle volant."
+            ]
+        },
+        "mlxx":{
+            title: "Grande mise en scène et beau spectacle",
+            pics: ["../../img/images/viewpoints/mlxx2.png","../../img/images/viewpoints/mlxx3.jpg"],
+            brief: [
+                "Les mises en scène sont folkloriques, de même que les spectateurs. Elle couvre les chants, danses, costumes, croyances païennes, mythes locaux.",
+                "Les acrobaties sont excellents et sont accompagnés de chants et de danses, mélangés aux courts métrages humoristiques"
+            ]
+        }
     };
     $(".card-more-info").on("click",function (e) {
         e.stopPropagation();
