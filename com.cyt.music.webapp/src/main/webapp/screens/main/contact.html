@@ -64,6 +64,15 @@
     </div>
 <script src="../../js/config.js"></script>
 <script>
+    function recordPv(){
+        $.ajax({
+            type:'post',
+            url:urlConfig+"pv/recordPv.action",
+            data:'pagetype=2',
+            success:function(data){//返回json结果
+            }});
+    }
+
     function sendEmail(){
         $.ajax({
             type:'post',
@@ -83,7 +92,7 @@
     }
 
     $(document).ready(function () {
-
+        recordPv();
         if( $('.floating-labels').length > 0 ) floatLabels();
 
         function floatLabels() {

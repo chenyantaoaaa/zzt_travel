@@ -50,7 +50,7 @@ public class OrderController {
 //        String url="https://www.sandbox.paypal.com/cgi-bin/webscr";
         String url="https://www.paypal.com/cgi-bin/webscr";
         List<NameValuePair> list = new ArrayList<NameValuePair>();
-        String at = "CCs8kTCxktMBax3Oy3KvhNzzujMtBEZdyiYPxjhuKtn1SQMQvddpyt0Lgr0";
+        String at = "CCs8kTCxktMBax3Oy3KvhNzzujMtBEZdyiYPxjhuKtn1SQMQvddpyt0Lgr0";//paypal zmy 账户签名
         list.add(new BasicNameValuePair("amt",payInfo.getAmt()));
         list.add(new BasicNameValuePair("cc", payInfo.getCc()));
         list.add(new BasicNameValuePair("item_name", payInfo.getItem_name()));

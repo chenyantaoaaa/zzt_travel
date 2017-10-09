@@ -21,4 +21,17 @@ public class DateUtil {
 		SimpleDateFormat sd = new SimpleDateFormat("yyyyMMddHHmmss");
 		return Long.valueOf(sd.format(date));
 	}
+
+	/**
+	 * 获取当前日期 yyyy-mm-dd
+	 */
+	public static  String getNowDate(){
+		Date d=new Date();//获取时间
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");//转换格式
+		return sdf.format(d);
+	}
+
+	public static void main(String[] args) {
+		System.out.println(getNowDate());
+	}
 }

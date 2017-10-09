@@ -166,8 +166,15 @@
 
 <script src="../../js/config.js"></script>
 <script>
-//    var roomType = "";
-//    if()
+    function recordPv(){
+        $.ajax({
+            type:'post',
+            url:urlConfig+"pv/recordPv.action",
+            data:'pagetype=4',
+            success:function(data){//返回json结果
+            }});
+    }
+
     function demoQuery(){
         awardRoomType();
         $.ajax({
@@ -194,6 +201,7 @@
     }
 
     $(document).ready(function () {
+        recordPv();
         $("input[name='cd-name']").val($.cookie("name"));
         $("input[name='cd-phone']").val($.cookie("phone"));
         $("input[name='cd-email']").val($.cookie("email"));

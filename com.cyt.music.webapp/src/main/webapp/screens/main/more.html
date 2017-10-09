@@ -812,8 +812,22 @@
                 <section></section>
         </div>
     </div>
-    <script src="../../js/javascripts/jquery-3.0.0.min.js"></script>
-    <script src="../../js/javascripts/main.js"></script>
 </div>
+<script src="../../js/javascripts/jquery-3.0.0.min.js"></script>
+<script src="../../js/javascripts/main.js"></script>
+<script src="../../js/config.js"></script>
+<script>
+    function recordPv(){
+        $.ajax({
+            type:'post',
+            url:urlConfig+"pv/recordPv.action",
+            data:'pagetype=3',
+            success:function(data){//返回json结果
+            }});
+    }
+    $(document).ready(function() {
+        recordPv();
+    });
+</script>
 </body>
 </html>

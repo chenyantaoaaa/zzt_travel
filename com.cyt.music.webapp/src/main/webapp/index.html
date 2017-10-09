@@ -118,18 +118,17 @@
     <script src="js/config.js"></script>
     <script src="js/email/jquery.textareafullscreen.js"></script>
     <script>
-        function sendEmail(){
+        function recordPv(){
             $.ajax({
                 type:'post',
-                url:urlConfig+"email/sendemail.action",
-                contentType:'application/json;charset=utf-8',
-                dataType:"json",
-                data:JSON.stringify({name:$("input[name='name']").val(),phone:$("input[name='phone']").val(),email:$("input[name='email']").val(),content:$("textarea[name='content']").val()}),
+                url:urlConfig+"pv/recordPv.action",
+                data:'pagetype=1',
                 success:function(data){//返回json结果
                 }});
         }
 
         $(document).ready(function() {
+            recordPv();
             $('#content').textareafullscreen();
         });
 

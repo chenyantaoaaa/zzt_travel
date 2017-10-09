@@ -16,4 +16,5 @@
 <bean id="userService" class="com.cyt.music.impl.service.user.userServiceImpl"/>
 <bean id="OrderInfoService" class="com.cyt.music.impl.service.order.OrderInfoServiceImpl"/>
 <bean id="EmailService" class="com.cyt.music.impl.service.email.EmailServiceImpl"/>
+<bean id="PvService" class="com.cyt.music.impl.service.pv.PvServiceImpl"/>
 </beans>
