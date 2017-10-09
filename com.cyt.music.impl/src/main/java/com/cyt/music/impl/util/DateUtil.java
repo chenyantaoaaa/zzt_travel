@@ -1,5 +1,6 @@
 package com.cyt.music.impl.util;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -33,5 +34,21 @@ public class DateUtil {
 
 	public static void main(String[] args) {
 		System.out.println(getNowDate());
+	}
+
+	public static String formatDateYMDHMS(Date dt) {
+		SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		return fmt.format(dt);
+	}
+
+	public static Date parseDate(String dateStr, String format) {
+		if (dateStr == null)
+			return null;
+		try {
+			return org.apache.commons.lang.time.DateUtils.parseDate(dateStr, new String[] { format });
+		} catch (ParseException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

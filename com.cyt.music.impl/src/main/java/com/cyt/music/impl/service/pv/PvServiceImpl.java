@@ -3,8 +3,11 @@ package com.cyt.music.impl.service.pv;
 import Constants.ZztConstants;
 import com.cyt.music.impl.mapper.pv.PvInfoMapper;
 import com.cyt.music.impl.util.DateUtil;
+import com.cyt.music.impl.util.HttpUtil;
+import com.cyt.music.impl.util.JsonUtils;
 import com.cyt.music.interfaces.pojo.Pv.PvInfo;
 import com.cyt.music.interfaces.pojo.Pv.PvInfoExample;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.pv.PvService;
@@ -21,7 +24,7 @@ public class PvServiceImpl implements PvService{
     private PvInfoMapper pvInfoMapper;
 
     @Override
-    public void recordPv(String ip,String country,String pageType) throws Exception {
+    public void recordPv(String ip,String pageType) throws Exception {
         PvInfoExample example = new PvInfoExample();
         example.or().andIpEqualTo(ip);
         List<PvInfo> pvInfoList = pvInfoMapper.selectByExample(example);
@@ -53,6 +56,15 @@ public class PvServiceImpl implements PvService{
             newPv.setPayPageCount(1);
         }
         newPv.setDate(today);
+        newPv.setCountry(getCountry(ip));
         pvInfoMapper.insert(newPv);
+    }
+
+    private String getCountry(String ip){
+        String url="http://ip.taobao.com/service/getIpInfo.php";
+        String result = HttpUtil.sendGet(url,"ip="+ip);
+        JSONObject object = JsonUtils.jsonStrToJsonObj(result);
+        JSONObject data = (JSONObject)object.get("data");
+        return data.getString("country");
     }
 }

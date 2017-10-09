@@ -21,10 +21,9 @@ public class PvController {
     @RequestMapping(value = "/recordPv")
     public void recordPv(HttpServletRequest req,String pagetype) throws Exception {
         String ip = StringUtil.getRemoteAddress(req);
-        String country = "";
         if(StringUtil.isEmpty(pagetype)){
             return;
         }
-        pvService.recordPv(ip,country,pagetype);
+        pvService.recordPv(ip,pagetype);
     }
 }
