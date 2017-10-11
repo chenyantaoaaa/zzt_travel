@@ -91,11 +91,10 @@ $(function () {
             ]
         },
         "tzfjq":{
-            title: "Tianzishan",
+            title: "Mont Tianmen",
             pics: ["../../img/images/viewpoints/tms2.jpg","../../img/images/viewpoints/6-3_277_346.png","../../img/images/viewpoints/6-4_277_346.png"],
             brief: [
-                "La réserve naturelle de Tianzi Shan est l’endroit idéal où se plonger en pleine nature. Il suffit d’emprunter le téléphérique du site pour atteindre les sommets escarpés de Tianzishan. Là, l’Homme se rend compte à quel point il n’est rien comparé à la nature.",
-                "Tianzi Shan est principal constitué de cascades, de ponts, de forêts de pierre et de grottes. Cependant, 4 spectacles naturels sont considérés comme incontournables pour tout voyageur visitant Tianzishan : nuages de brouillard entourant les sommets de la montagne, vue étonnantes du soleil levant, nuit de pleine lune et pics enneigés. Vous l’aurez donc compris, ce n’est pas en visitant le site une demi-journée que vous pourrez admirer les plus jolis paysages de Tianzishan. Heureusement, 80 plateformes d’observations ont été installées pour donner plus d’opportunité d’apercevoir ces paysages mystiques."
+                "La Montagne de Tianmen fut nommée parc national forestier en 1992 en raison de son abondante végétation. La montagne renferme aussi un vestige culturel qui date depuis plus de 500 ans. Il s’agit du temple bouddhiste de la dynastie Tang perché au sommet de la montagne et qui sert encore de lieux de prière pour les habitants.La montagne s’élève au maximum à 1 519 mètre d’altitude. Le mont Tian Men se trouve près de la réserve naturelle de Wulingyuan et bénéficie d’une végétation luxuriante, riche et variée. Néanmoins, sa proximité ne se retrouve pas dans ses reliefs. Mont solitaire, le Tianmen Shan est formé à partir de la corrosion des roches calcaires et forme aujourd’hui une grande terrasse riche en ressources naturelles."
             ]
         },
         "hld":{
