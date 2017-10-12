@@ -273,7 +273,7 @@
       remark = #{remark,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <select id="queryPvInfo" parameterType="com.cyt.music.interfaces.pojo.Pv.PvInfoDto" resultType="com.cyt.music.interfaces.pojo.Pv.PvInfo">
+  <select id="queryPvInfo" parameterType="com.cyt.music.interfaces.pojo.Pv.PvInfoDto" resultMap="BaseResultMap">
     SELECT  t.id,
     t.ip,
     t.main_page_count,
@@ -286,11 +286,12 @@
     FROM
     pv_info t
     <where>
+      1=1
       <if test="country!=null and country!=''">
-        t.country LIKE '%${country}%'
+        and t.country LIKE '%${country}%'
       </if>
       <if test="date!=null and date!=''">
-        t.date LIKE '%${date}%'
+        and t.date LIKE '%${date}%'
       </if>
     </where>
     <include refid="com.cyt.music.impl.mapper.sys.CommonSqlMapper.page_end" />
@@ -308,14 +309,13 @@
     FROM
     pv_info t
     <where>
-    <if test="country!=null and country!=''">t.country LIKE '%${country}%'
-    </if>
-    <if
-            test="date!=null and date!=''">
-      t
-      .date LIKE
-      '%${date}%'
-    </if>
+      1=1
+      <if test="country!=null and country!=''">
+        and t.country LIKE '%${country}%'
+      </if>
+      <if test="date!=null and date!=''">
+        and t.date LIKE '%${date}%'
+      </if>
     </where>
     )t
   </select>
