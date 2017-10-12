@@ -11,4 +11,6 @@ public class ZztConstants extends Properties{
     public static String CONTACT_PAGE_TYPE = "2";
     public static String MORE_PAGE_TYPE = "3";
     public static String PAY_PAGE_TYPE = "4";
+
+    public static String PV_COUNT_URL = "http://ip.taobao.com/service/getIpInfo.php";
 }

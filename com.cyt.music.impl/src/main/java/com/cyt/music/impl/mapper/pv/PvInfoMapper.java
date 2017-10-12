@@ -1,6 +1,7 @@
 package com.cyt.music.impl.mapper.pv;
 
 import com.cyt.music.interfaces.pojo.Pv.PvInfo;
+import com.cyt.music.interfaces.pojo.Pv.PvInfoDto;
 import com.cyt.music.interfaces.pojo.Pv.PvInfoExample;
 import org.apache.ibatis.annotations.Param;
 
@@ -28,4 +29,8 @@ public interface PvInfoMapper {
     int updateByPrimaryKeySelective(PvInfo record);
 
     int updateByPrimaryKey(PvInfo record);
+
+    List<PvInfo> queryPvInfo(PvInfoDto record);
+
+    int queryPvInfoCount (PvInfo record);
 }

@@ -6,6 +6,7 @@ import com.cyt.music.impl.util.DateUtil;
 import com.cyt.music.impl.util.HttpUtil;
 import com.cyt.music.impl.util.JsonUtils;
 import com.cyt.music.interfaces.pojo.Pv.PvInfo;
+import com.cyt.music.interfaces.pojo.Pv.PvInfoDto;
 import com.cyt.music.interfaces.pojo.Pv.PvInfoExample;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,11 +61,25 @@ public class PvServiceImpl implements PvService{
         pvInfoMapper.insert(newPv);
     }
 
+    public List<PvInfo> queryPvInfo(PvInfoDto dto) throws Exception{
+        List<PvInfo> resultList = pvInfoMapper.queryPvInfo(dto);
+        return resultList;
+    }
+
+    public int queryPvInfoCount(PvInfo dto) throws Exception{
+        int count = pvInfoMapper.queryPvInfoCount(dto);
+        return count;
+    }
+
     private String getCountry(String ip){
-        String url="http://ip.taobao.com/service/getIpInfo.php";
+        String url=ZztConstants.PV_COUNT_URL;
         String result = HttpUtil.sendGet(url,"ip="+ip);
         JSONObject object = JsonUtils.jsonStrToJsonObj(result);
         JSONObject data = (JSONObject)object.get("data");
         return data.getString("country");
+    }
+
+    public String judgeCountry(String ip) throws Exception{
+        return getCountry(ip);
     }
 }
