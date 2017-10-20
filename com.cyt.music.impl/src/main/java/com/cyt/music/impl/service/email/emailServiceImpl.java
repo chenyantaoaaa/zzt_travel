@@ -15,7 +15,7 @@ public class EmailServiceImpl implements EmailService {
     private EmailLogic emailLogic;
 
     @Override
-    public String sendEmail(String emailStr,String title) throws Exception {
-        return emailLogic.sendEmail(emailStr,title);
+    public String sendEmail(String emailStr,String title,String emailAd) throws Exception {
+        return emailLogic.sendEmail(emailStr,title,emailAd);
     }
 }

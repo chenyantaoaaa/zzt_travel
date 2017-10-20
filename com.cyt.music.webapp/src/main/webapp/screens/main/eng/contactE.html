@@ -6,12 +6,12 @@
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 
-    <link rel="stylesheet" href="../../css/form/reset.css"> <!-- CSS reset -->
-    <link rel="stylesheet" href="../../css/form/style.css"> <!-- Resource style -->
-    <link rel="stylesheet" href="../../css/stylesheets/tao.css">
-    <script src="../../js/form/modernizr.js"></script> <!-- Modernizr -->
-    <script src="../../js/form/jquery-2.1.1.js"></script>
-    <script type="text/javascript" src="../../js/jquery.cookie.js" ></script>
+    <link rel="stylesheet" href="../../../css/form/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="../../../css/form/style.css"> <!-- Resource style -->
+    <link rel="stylesheet" href="../../../css/stylesheets/tao.css">
+    <script src="../../../js/form/modernizr.js"></script> <!-- Modernizr -->
+    <script src="../../../js/form/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="../../../js/jquery.cookie.js" ></script>
     <title>Contact Form | CodyHouse</title>
 </head>
 <script type="text/javascript">
@@ -19,25 +19,25 @@
     document.write(unescape("%3Cspan id='cnzz_stat_icon_1264472680'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1264472680' type='text/javascript'%3E%3C/script%3E"));
     document.getElementById("cnzz_stat_icon_1264472680").style.display = "none";
 </script>
-<body style="background-image: url(../../img/images/others/contact_banner.jpg);margin-top: -1.2%">
+<body style="background-image: url(../../../img/images/others/contact_banner.jpg);margin-top: -1.2%">
     <div id="contactLogo">
-        <img src="../../img/images/others/logo.png"/>
+        <img src="../../../img/images/others/logo.png"/>
     </div>
     <form class="cd-form floating-labels">
         <fieldset>
             <!--<legend>请填写您的个人信息</legend>-->
 
             <div class="error-message">
-                <p>Informations nécessaires</p>
+                <p>Necessary information</p>
             </div>
 
             <div class="icon">
-                <label class="cd-label" for="cd-name" style="color: #000000;">Nom et prénom</label>
+                <label class="cd-label" for="cd-name" style="color: #000000;">Name</label>
                 <input class="user" type="text" name="cd-name" id="cd-name" >
             </div>
 
             <div class="icon">
-                <label class="cd-label" for="cd-phone" style="color: #000000;">Numéro de portable</label>
+                <label class="cd-label" for="cd-phone" style="color: #000000;">Phone</label>
                 <input class="phone" type="text" name="cd-phone" id="cd-phone" >
             </div>
 
@@ -47,23 +47,23 @@
             </div>
 
             <div class="contact-form-item">
-                <label for="" style="font-size: 18px;color: #ffffff">Votre message</label>
+                <label for="" style="font-size: 18px;color: #ffffff">Your Advices</label>
                 <textarea  name="content" id="content" style="margin-top: 1rem"></textarea>
-                <button type="button" name="sendBtn" class="sendBtn" onclick="sendEmail()">Envoyer</button>
+                <button type="button" name="sendBtn" class="sendBtn" onclick="sendEmail()">Send</button>
             </div>
         </fieldset>
     </form>
     <div id="contactWords">
-        <p id="Fir">Contactez-nous par email via le formulaire ci-dessous, nous vous répondrons sous un délai de 48 heures maximum.</p>
+        <p id="Fir">Contact us by email through the form below, we will respond to you within 48 hours.</p>
         <div style="padding-top: 1rem">
-            <p>Contact nous :</p>
-            <p>Adresse e-mail : yyyvoyage@hotmail.com</p>
-            <p>Numéro de contact : +86 15527361651</p>
-            <p>Adresse : Shanghai Pudong Deping road 289</p>
+            <p>Contact us :</p>
+            <p>address e-mail : freevel1@163.com</p>
+            <p>address : Shanghai Pudong Deping road 289</p>
         </div>
     </div>
-<script src="../../js/config.js"></script>
+<script src="../../../js/config.js"></script>
 <script>
+    var pageFlag = "contectF";
     function recordPv(){
         $.ajax({
             type:'post',
@@ -79,14 +79,14 @@
             url:urlConfig+"email/sendemail.action",
             contentType:'application/json;charset=utf-8',
             dataType:"json",
-            data:JSON.stringify({name:$("input[name='cd-name']").val(),phone:$("input[name='cd-phone']").val(),email:$("input[name='cd-email']").val(),content:$("textarea[name='content']").val()}),
+            data:JSON.stringify({name:$("input[name='cd-name']").val(),phone:$("input[name='cd-phone']").val(),email:$("input[name='cd-email']").val(),content:$("textarea[name='content']").val(),pageFlag:pageFlag}),
             success:function(data){//返回json结果
                 if(data.msg == "succ"){
-                    alert("Envoyé");
+                    alert("send success");
                 }else if(data.msg == "fail"){
-                    alert("Veuillez réessayer plus tard");
+                    alert("please try again later");
                 }else{
-                    alert("Veuillez réessayer plus tard");
+                    alert("please try later");
                 }
             }});
     }

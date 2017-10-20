@@ -13,6 +13,16 @@ public class EmailDTO {
 
     private String content;
 
+    private String pageFlag;
+
+    public String getPageFlag() {
+        return pageFlag;
+    }
+
+    public void setPageFlag(String pageFlag) {
+        this.pageFlag = pageFlag;
+    }
+
     public String getName() {
         return name;
     }

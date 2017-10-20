@@ -23,6 +23,12 @@
             <ul class="right-title">
                 <li><a href="screens/main/more.html"><img src="img/images/others/MORE.png"></a></li>
                 <li><a href="screens/main/contact.html"><img src="img/images/others/CONTACT.png"></a></li>
+                <li>
+                    <select id="lan" style="position: absolute;right: 2rem;bottom: 2rem;">
+                        <option value="FRA">FRA</option>
+                        <option value="ENG">ENG</option>
+                    </select>
+                </li>
             </ul>
         </header>
         <section class="home-img-area">
@@ -118,6 +124,12 @@
     <script src="js/config.js"></script>
     <script src="js/email/jquery.textareafullscreen.js"></script>
     <script>
+        $("#lan").change(function () {
+            if($("#lan").val()=="ENG"){
+                location.href = urlConfig + "screens/main/eng/indexE.html";
+            }
+        });
+
         function recordPv(){
             $.ajax({
                 type:'post',
@@ -127,8 +139,23 @@
                 }});
         }
 
+        function judgeCountry(){
+            if(GetQueryString("lan")=="FRA"){
+                return;
+            }
+            $.ajax({
+                type:'post',
+                url:urlConfig+"pv/judgeCountry.action",
+                success:function(data){//返回json结果
+                    if(data.info != "法国" && data.info != "中国") {
+                        location.href = urlConfig + "screens/main/eng/indexE.html";
+                    }
+                }});
+        }
+
         $(document).ready(function() {
             recordPv();
+            judgeCountry();
             $('#content').textareafullscreen();
         });
 
@@ -164,6 +191,13 @@
                 }
             }
         })();
+
+        function GetQueryString(name)
+        {
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if(r!=null)return  unescape(r[2]); return null;
+        }
     </script>
 </body>
 </html>

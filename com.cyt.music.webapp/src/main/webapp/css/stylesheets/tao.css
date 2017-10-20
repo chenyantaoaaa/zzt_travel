@@ -63,7 +63,6 @@ a,a:link,a:visited,a:hover,a:active{
 }
 .home-page .home-section.section-three{
      top: 1rem;
-     text-align: center;
  }
 .home-page .home-section.section-five{
     top: 1rem;
@@ -117,8 +116,23 @@ a,a:link,a:visited,a:hover,a:active{
 .home-page .home-section .home-brief-text{
     /*text-indent: 2rem;*/
     font-family: Arial;
-    font-size: 24px;
+    font-size: 20px;
     margin-top: 2rem;
+    text-indent:3rem;
+}
+.home-page .home-section .home-brief-text2{
+    /*text-indent: 2rem;*/
+    font-family: Helvetica;
+    font-size: 20px;
+    margin-top: 2rem;
+    text-indent:3rem;
+    letter-spacing: 0.5px
+}
+.home-page .home-section .home-brief-text1{
+    /*text-indent: 2rem;*/
+    font-family: Helvetica;
+    letter-spacing: 0.5px;
+    font-size: 20px;
     text-indent:3rem
 }
 .home-brief-body .home-brief-item{

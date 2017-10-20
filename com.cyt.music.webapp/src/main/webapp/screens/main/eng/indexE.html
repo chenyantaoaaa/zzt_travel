@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Au pays des merveilles</title>
+    <link rel="stylesheet" href="../../../css/stylesheets/tao.css">
+    <link rel="stylesheet" href="../../../css/email/default.css">
+    <link rel="stylesheet" href="../../../css/email/normalize.css">
+    <link rel="stylesheet" href="../../../css/email/set2.css">
+    <link rel="stylesheet" href="../../../css/email/textareafullscreen.css">
+</head>
+<script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1264472680'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1264472680' type='text/javascript'%3E%3C/script%3E"));
+    document.getElementById("cnzz_stat_icon_1264472680").style.display = "none";
+</script>
+<body>
+<div class="home-page">
+    <header class="t-nav">
+        <ul class="left-title">
+            <li><a href="indexE.html" class="active"><img src="../../../img/images/others/HOME.png"></a></li>
+        </ul>
+        <ul class="right-title">
+            <li><a href="moreE.html"><img src="../../../img/images/others/MORE.png"></a></li>
+            <li><a href="contactE.html"><img src="../../../img/images/others/CONTACT.png"></a></li>
+            <li>
+                <select id="lan" style="position: absolute;right: 2rem;bottom: 2rem;">
+                    <option value="FRA">FRA</option>
+                    <option value="ENG">ENG</option>
+                </select>
+            </li>
+        </ul>
+    </header>
+    <section class="home-img-area">
+        <img src="http://res.cloudinary.com/freevel/image/upload/v1508206612/banner001ENG_xnpq9c.png" alt="" class="home-main-image">
+    </section>
+    <section class="home-section section-one">
+        <div class="home-section-body">
+            <!--<p class="home-brief-title">sous titre</p>-->
+            <p class="home-brief-text">
+                <!--我是炫酷的内容我是炫酷的内容我是炫酷的内容我是炫酷的内容我是炫酷的内容我是炫酷的内容我是炫酷的内容我是炫酷的内容我是炫酷的内容我是炫酷的内容我是炫酷的内容我是炫酷的内容我是炫酷的内容-->
+            </p>
+            <p class="home-brief-text2">
+                Zhangjiajie has a good name of “Three thousand miraculous peaks”,Due the different sizes and heights of those peaks,some have peaks attached at the foot or peaks grew at the sideor peaks intersected at the summit,some look like mountain range when viewed crossly but look like peaks when viewes sideways,and some are difficult to tell whether or not they are peaks.Some people believe “ most of peaks display more vertical contour than those in the heritage places in America.therefore,the quartz sandstone hoodoos in Zhangjiajie is in possession of monopolizing status in the world.
+            </p>
+        </div>
+    </section>
+
+    <section class="home-section section-two">
+        <div class="home-section-body">
+            <div class="home-brief-body">
+                <div class="home-brief-item1">
+                    <img src="../../../img/images/eng/indexBanner2_ENG.jpg" style="width: 100%">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="home-section section-three">
+        <div class="home-section-body">
+            <p class="home-brief-text1">
+                Whether you come from The United States of America or Europe，Once you speak English，you will not miss this charming sight. We will provide customized service for you. The suggestion for this tour of the time is 11 days. If you are interested in ZhangJiaJie or other tourist spots in China, please contact us immediately, we will make a plan and budget for you for free, even you do not choose us. Freevel will always be there, offering the best service and being your best company.
+            </p>
+            <img src="../../../img/images/eng/prix_title_ENG.jpg">
+        </div>
+    </section>
+    <section class="home-section section-five">
+        <div class="home-section-body">
+            <div class="home-brief-item">
+                <a href="../more.html"><img src="../../../img/images/eng/indexBanner1_ENG.jpg" style="width: 80%"/></a>
+            </div>
+        </div>
+    </section>
+    <section class="home-img-area footer-img">
+        <img src="../../../img/images/home/1_03_1920_1250.jpg" alt="" class="home-main-image">
+    </section>
+</div>
+<script src="../../../js/javascripts/jquery-3.0.0.min.js"></script>
+<script src="../../../js/javascripts/main.js"></script>
+<script src="../../../js/email/classie.js"></script>
+<script src="../../../js/config.js"></script>
+<script src="../../../js/email/jquery.textareafullscreen.js"></script>
+<script>
+    $("#lan").change(function () {
+        if($("#lan").val()=="FRA"){
+            location.href = urlConfig+"?lan=FRA";
+        }
+    });
+
+    function recordPv(){
+        $.ajax({
+            type:'post',
+            url:urlConfig+"pv/recordPv.action",
+            data:'pagetype=1',
+            success:function(data){//返回json结果
+            }});
+    }
+
+    $(document).ready(function() {
+        $("#lan").val("ENG");
+        $('#content').textareafullscreen();
+    });
+
+    (function () {
+        if (!String.prototype.trim) {
+            (function () {
+                // Make sure we trim BOM and NBSP
+                var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+                String.prototype.trim = function () {
+                    return this.replace(rtrim, '');
+                };
+            })();
+        }
+
+        [ ].slice.call(document.querySelectorAll('input.input__field')).forEach(function (inputEl) {
+            // in case the input is already filled..
+            if (inputEl.value.trim() !== '') {
+                classie.add(inputEl.parentNode, 'input--filled');
+            }
+
+            // events:
+            inputEl.addEventListener('focus', onInputFocus);
+            inputEl.addEventListener('blur', onInputBlur);
+        });
+
+        function onInputFocus(ev) {
+            classie.add(ev.target.parentNode, 'input--filled');
+        }
+
+        function onInputBlur(ev) {
+            if (ev.target.value.trim() === '') {
+                classie.remove(ev.target.parentNode, 'input--filled');
+            }
+        }
+    })();
+</script>
+</body>
+</html>

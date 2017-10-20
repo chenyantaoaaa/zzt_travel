@@ -30,6 +30,7 @@ public class PvServiceImpl implements PvService{
         example.or().andIpEqualTo(ip);
         List<PvInfo> pvInfoList = pvInfoMapper.selectByExample(example);
         String today = DateUtil.getNowDate();
+        String nowTime = DateUtil.getNowTime();
         for (PvInfo pvInfo : pvInfoList) {
             if(pvInfo.getDate().equals(today)){
                 if(pageType.equals(ZztConstants.MAIN_PAGE_TYPE)){
@@ -58,6 +59,7 @@ public class PvServiceImpl implements PvService{
         }
         newPv.setDate(today);
         newPv.setCountry(getCountry(ip));
+        newPv.setRemark(nowTime);
         pvInfoMapper.insert(newPv);
     }
 

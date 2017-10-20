@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>-->
+
+    <link rel="stylesheet" href="../../css/form/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="../../css/form/style1.css"> <!-- Resource style -->
+    <script src="../../js/form/modernizr.js"></script> <!-- Modernizr -->
+    <script src="../../js/form/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="../../js/jquery.cookie.js" ></script>
+    <title>Contact Form | CodyHouse</title>
+</head>
+<script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1264472680'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1264472680' type='text/javascript'%3E%3C/script%3E"));
+    document.getElementById("cnzz_stat_icon_1264472680").style.display = "none";
+</script>
+<body>
+<!--style="display:none;"-->
+<form class="cd-form floating-labels">
+    <div id="suc" style="display:none;">
+        <p style="color: #3ce000;padding-top: 1rem">Votre commande est validée</p>
+        <p style="font-size: 18px;padding-top: 3rem">Nous vous répondrons dans un délai maximum de 48 heures</p>
+    </div>
+    <div id="fai" style="display:none;">
+        <p style="color: #ff0000;padding-top: 1rem">Votre commande est validée</p>
+    </div>
+    <fieldset>
+        <!--<legend>请填写您的个人信息</legend>-->
+
+        <div class="error-message">
+            <p style="font-family: Arial;font-size: 18px">Informations nécessaires</p>
+        </div>
+
+        <div class="icon">
+            <label class="cd-label" for="cd-name">Nom et prénom</label>
+            <input class="user" type="text" name="cd-name" id="cd-name">
+            <p id="nameFai" style="color: #ff0000;padding-top: 1rem;font-family: Arial;display: none">Merci de renseigner votre nom et prénom</p>
+        </div>
+
+        <div class="icon">
+            <label class="cd-label" for="cd-phone">Numéro de portable</label>
+            <input class="phone" type="text" name="cd-phone" id="cd-phone">
+            <p id="phoneFai" style="color: #ff0000;padding-top: 1rem;font-family: Arial;display: none">Merci de renseigner votre numéro de téléphone</p>
+        </div>
+
+        <div class="icon">
+            <label class="cd-label" for="cd-email">Email</label>
+            <input class="email error" type="email" name="cd-email" id="cd-email">
+            <p id="emailFai" style="color: #ff0000;padding-top: 1rem;font-family: Arial;display: none">Veuillez saisir une adresse e-mail valide</p>
+        </div>
+
+        <div class="icon">
+            <label class="cd-label" for="cd-passport">Numéro de passeport</label>
+            <input class="passport" type="text" name="cd-passport" id="cd-passport">
+            <p id="passportFai" style="color: #ff0000;padding-top: 1rem;font-family: Arial;display: none">Veuillez saisir votre numéro de passeport</p>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <!--<legend>请填写您的项目信息</legend>-->
+
+        <!--<div>-->
+            <!--<h4>希望成团人数</h4>-->
+            <!--<p class="cd-select icon">-->
+                <!--<select class="budget" id="budget">-->
+                    <!--<option value="1">1人</option>-->
+                    <!--<option value="2">2人</option>-->
+                    <!--<option value="3">3人</option>-->
+                    <!--<option value="4">4人</option>-->
+                <!--</select>-->
+            <!--</p>-->
+        <!--</div>-->
+
+        <div>
+            <h4>Date de départ</h4>
+            <p class="cd-select icon">
+                <select class="budget" id="budget1">
+                    <option value="2017-11-13">13-11-2017</option>
+                    <option value="2017-11-27">27-11-2017</option>
+                    <option value="2018-03-01">01-03-2018</option>
+                    <option value="2018-04-01">01-04-2018</option>
+                    <option value="2018-05-01">01-05-2018</option>
+                    <option value="2018-06-01">01-06-2018</option>
+                </select>
+            </p>
+        </div>
+
+        <div>
+            <h4>type de chambre</h4>
+            <ul class="cd-form-list">
+                <li>
+                    <input type="radio" name="radio-button" id="cd-radio-1" checked>
+                    <label for="cd-radio-1" style="font-family: Arial;font-size: 12px">2 lits simples</label>
+                </li>
+                <li>
+                    <input type="radio" name="radio-button" id="cd-radio-2">
+                    <label for="cd-radio-2" style="font-family: Arial;font-size: 12px">1 grand lit doubled</label>
+                </li>
+                <li>
+                    <input type="radio" name="radio-button" id="cd-radio-3">
+                    <label for="cd-radio-3" style="font-family: Arial;font-size: 12px">Pour une chambre individuelle +400€ à la arrive</label>
+                </li>
+            </ul>
+        </div>
+
+        <!--<div>-->
+            <!--<h4>Features</h4>-->
+
+            <!--<ul class="cd-form-list">-->
+                <!--<li>-->
+                    <!--<input type="checkbox" id="cd-checkbox-1">-->
+                    <!--<label for="cd-checkbox-1">Option 1</label>-->
+                <!--</li>-->
+
+                <!--<li>-->
+                    <!--<input type="checkbox" id="cd-checkbox-2">-->
+                    <!--<label for="cd-checkbox-2">Option 2</label>-->
+                <!--</li>-->
+
+                <!--<li>-->
+                    <!--<input type="checkbox" id="cd-checkbox-3">-->
+                    <!--<label for="cd-checkbox-3">Option 3</label>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+
+        <!--<div class="icon">-->
+            <!--<label class="cd-label" for="cd-textarea">Project description</label>-->
+            <!--<textarea class="message" name="cd-textarea" id="cd-textarea" required></textarea>-->
+        <!--</div>-->
+
+        <!--<div>-->
+            <!--<input type="submit" value="Send Message">-->
+        <!--</div>-->
+
+        <br>
+            <div style="font-family: Arial; font-size: 14px; text-align: center" >Veuillez bien enregistré votre information avant la paiement</div>
+            <input type="button" name="btn" id="btn" value="Enregistrer" onclick="demoQuery2()"/>
+            <p id="saveinfosuc" style="color: #3ce000;padding-top: 1rem;font-family: Arial;display: none;text-align: center">Votre commande a été validée,  veuillez passer au paiement</p>
+            <p id="saveinfofai" style="color: #ff0000;padding-top: 1rem;font-family: Arial;display: none;text-align: center">Veuillez réessayer plus tard</p>
+        </br>
+
+    </fieldset>
+</form>
+<!--<form target="paypal" class="paypal" id="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">-->
+    <!--<input type="hidden" name="lc" value="FR">-->
+    <!--<input type="hidden" name="cmd" value="_s-xclick">-->
+    <!--<input type="hidden" name="hosted_button_id" value="AKTLQGU267RDG">-->
+    <!--<input type="image"  src="../../img/images/paybutton.jpg" border="0" name="submit" alt="PayPal——最安全便捷的在线支付方式！">-->
+    <!--&lt;!&ndash;<input type="image" src="https://www.paypalobjects.com/zh_XC/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal——最安全便捷的在线支付方式！">&ndash;&gt;-->
+    <!--<img alt="" border="0" src="https://www.paypalobjects.com/zh_XC/i/scr/pixel.gif" width="1" height="1">-->
+<!--</form>-->
+<form target="paypal" class="paypal" id="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+    <input type="hidden" name="lc" value="FR">
+    <input type="hidden" name="cmd" value="_s-xclick">
+    <input type="hidden" name="hosted_button_id" value="LCZKPGKA5JTEW">
+    <input type="image" src="../../img/images/paybutton.jpg" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+<script src="../../js/config.js"></script>
+<script>
+    function recordPv(){
+        $.ajax({
+            type:'post',
+            url:urlConfig+"pv/recordPv.action",
+            data:'pagetype=4',
+            success:function(data){//返回json结果
+            }});
+    }
+
+    function demoQuery(){
+        awardRoomType();
+        $.ajax({
+            type:'post',
+            url:urlConfig+"order/getPayInfo.action",
+            contentType:'application/json;charset=utf-8',
+            dataType:"json",
+            //数据格式是json串，商品信息
+            data:JSON.stringify({amt:GetQueryString("amt"),cc:GetQueryString("cc"),item_name:GetQueryString("item_name"),st:GetQueryString("st"),tx:GetQueryString("tx"),
+                name:$("input[name='cd-name']").val(),
+                phone:$("input[name='cd-phone']").val(),
+                roomType:roomType,
+                email:$("input[name='cd-email']").val(),
+                personNum:$("#budget").val(),
+                passport:$("input[name='cd-passport']").val(),
+                schedule:$("#budget1").val()}),
+            success:function(data){//返回json结果
+                if(data.info == "SUCC"){
+                    document.getElementById('suc').style.display='block';
+                }else if(data.info == "FAIL"){
+                    document.getElementById('fai').style.display='block';
+                }
+            }});
+    }
+
+    $(document).ready(function () {
+        recordPv();
+        $("input[name='cd-name']").val($.cookie("name"));
+        $("input[name='cd-phone']").val($.cookie("phone"));
+        $("input[name='cd-email']").val($.cookie("email"));
+        if(typeof($.cookie("personNum"))!="undefined"){
+            $("#budget").val($.cookie("personNum"));
+        }
+        if(typeof($.cookie("schedule"))!="undefined"){
+            $("#budget1").val($.cookie("schedule"));
+        }
+        $("input[name='cd-passport']").val($.cookie("passport"));
+        if($.cookie("roomType")=="2"){
+            $("#cd-radio-2").attr("checked","checked");
+        }else if($.cookie("roomType")=="1"){
+            $("#cd-radio-1").attr("checked","checked");
+        }else if($.cookie("roomType")=="3"){
+            $("#cd-radio-3").attr("checked","checked");
+        }else{
+            $("#cd-radio-1").attr("checked","checked");
+        }
+        if(GetQueryString("tx")!=null){
+            demoQuery();
+        }
+
+        if(typeof($.cookie("name"))!="undefined"){
+            document.getElementById('paypal').style.display='block';
+        }
+
+        if( $('.floating-labels').length > 0 ) floatLabels();
+
+        function floatLabels() {
+            var inputFields = $('.floating-labels .cd-label').next();
+            inputFields.each(function(){
+                var singleInput = $(this);
+                //check if user is filling one of the form fields
+                checkVal(singleInput);
+                singleInput.on('change keyup', function(){
+                    checkVal(singleInput);
+                    $(this).parent().find("p").css("display","none");
+                });
+            });
+        }
+
+        function checkVal(inputField) {
+            ( inputField.val() == '' ) ? inputField.prev('.cd-label').removeClass('float') : inputField.prev('.cd-label').addClass('float');
+        }
+    });
+
+    window.onload = test;
+    function test () {
+    }
+
+    var roomType = "";
+    function awardRoomType () {
+        if ($("input[id='cd-radio-1']:checked").val() == "on") {
+            roomType = "1";
+        }
+        if ($("input[id='cd-radio-2']:checked").val() == "on") {
+            roomType = "2";
+        }
+        if ($("input[id='cd-radio-3']:checked").val() == "on") {
+            roomType = "3";
+        }
+    }
+
+    function demoQuery2(){
+        document.getElementById('saveinfofai').style.display='none';
+        document.getElementById('saveinfosuc').style.display='none';
+        var myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+        if($("input[name='cd-name']").val() ==null || $("input[name='cd-name']").val() =="" || $("input[name='cd-name']").val() == undefined){
+            document.getElementById('nameFai').style.display='block';
+//            alert("Merci de renseigner votre nom et prénom");
+            return;
+        }
+        if($("input[name='cd-phone']").val() ==null || $("input[name='cd-phone']").val() =="" || $("input[name='cd-phone']").val() == undefined){
+            document.getElementById('phoneFai').style.display='block';
+//            alert("Merci de renseigner votre numéro de téléphone");
+            return;
+        }
+        if($("input[name='cd-email']").val() ==null || $("input[name='cd-email']").val() =="" || $("input[name='cd-email']").val() == undefined || !myreg.test($("input[name='cd-email']").val())){
+            document.getElementById('emailFai').style.display='block';
+//            alert("Veuillez saisir une adresse e-mail valide");
+            return;
+        }
+        if($("input[name='cd-passport']").val() ==null || $("input[name='cd-passport']").val() =="" || $("input[name='cd-passport']").val() == undefined){
+            document.getElementById('passportFai').style.display='block';
+//            alert("Veuillez saisir votre numéro de passeport");
+            return;
+        }
+        awardRoomType();
+        $.ajax({
+            type:'post',
+            url:urlConfig+"order/saveCustomInfo.action",
+            contentType:'application/json;charset=utf-8',
+            dataType:"json",
+            data:JSON.stringify({name:$("input[name='cd-name']").val(),
+                phone:$("input[name='cd-phone']").val(),
+                roomType:roomType,
+                email:$("input[name='cd-email']").val(),
+                personNum:$("#budget").val(),
+                passport:$("input[name='cd-passport']").val(),
+                schedule:$("#budget1").val()}),
+            success:function(data){//返回json结果
+                if(data.msg == "succ"){
+                    if(typeof($.cookie("name"))!="undefined"){
+                        document.getElementById('paypal').style.display='block';
+                        document.getElementById('saveinfosuc').style.display='block';
+//                        alert("Finaliser ma commande et procéder au paiement");
+                        var offsetH = 200;
+                        $("body").animate({"scrollTop":offsetH},800);
+                    }else{
+                        document.getElementById('saveinfofai').style.display='block';
+//                        alert("Veuillez réessayer plus tard");
+                        return;
+                    }
+                    $("input[name='cd-name']").val($.cookie("name"));
+                    $("input[name='cd-phone']").val($.cookie("phone"));
+                    $("input[name='cd-email']").val($.cookie("email"));
+                    if(typeof($.cookie("personNum"))!="undefined"){
+                        $("#budget").val($.cookie("personNum"));
+                    }
+                    if(typeof($.cookie("schedule"))!="undefined"){
+                        $("#budget1").val($.cookie("schedule"));
+                    }
+                    $("input[name='cd-passport']").val($.cookie("passport"));
+                    if($.cookie("roomType")=="2"){
+                        $("#cd-radio-2").attr("checked","checked");
+                    }else if($.cookie("roomType")=="1"){
+                        $("#cd-radio-1").attr("checked","checked");
+                    }else{
+                        $("#cd-radio-3").attr("checked","checked");
+                    }
+                }else{
+                    document.getElementById('saveinfofai').style.display='block';
+//                    alert("Veuillez réessayer plus tard");
+                }
+            }});
+    }
+
+    function GetQueryString(name)
+    {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return  unescape(r[2]); return null;
+    }
+</script>
+</body>
+</html>

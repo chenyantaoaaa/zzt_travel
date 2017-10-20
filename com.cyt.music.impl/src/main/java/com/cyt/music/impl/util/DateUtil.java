@@ -32,8 +32,17 @@ public class DateUtil {
 		return sdf.format(d);
 	}
 
+	/**
+	 * 获取当前日期 yyyy-mm-dd
+	 */
+	public static  String getNowTime(){
+		Date d=new Date();//获取时间
+		SimpleDateFormat sdf=new SimpleDateFormat("HH:mm:ss");//转换格式
+		return sdf.format(d);
+	}
+
 	public static void main(String[] args) {
-		System.out.println(getNowDate());
+		System.out.println(getNowTime());
 	}
 
 	public static String formatDateYMDHMS(Date dt) {

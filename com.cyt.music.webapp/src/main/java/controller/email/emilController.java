@@ -32,7 +32,12 @@ public class emilController extends BaseAction{
         Result result = new Result();
         Cookie[] cookies=request.getCookies();
         Cookie sendFlag=getCookieByName(request,"sendFlag");
-
+        String emailAd ="";
+        if(StringUtil.isEmpty(dto.getPageFlag())){
+            emailAd = "yyyvoyage@gmail.com";
+        }else{
+            emailAd = "freevel1@163.com";
+        }
         if(sendFlag==null) {
             //设置cookie 2分钟允许发送一次email
             Cookie cookie = new Cookie("sendFlag", "sendFlag");
@@ -43,7 +48,7 @@ public class emilController extends BaseAction{
             StringBuilder emailStr=new StringBuilder();
             emailStr.append("客户名:").append(dto.getName()).append("  ").append("邮箱地址:").append(dto.getEmail()).append("  ")
                     .append("客户电话:").append(dto.getPhone()).append("  ").append("意见内容:").append(dto.getContent());
-            String msg = emailService.sendEmail(emailStr.toString(),title);
+            String msg = emailService.sendEmail(emailStr.toString(),title,emailAd);
             if(StringUtil.isNotEmptyStr(msg) && msg.equals("fail")){
                 //如果发送失败则清除cookie 允许客户再次发送
                 cookie.setMaxAge(0);

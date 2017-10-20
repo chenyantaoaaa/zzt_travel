@@ -183,7 +183,7 @@ public class HttpUtil {
 //        HttpUtil httpUtil=new HttpUtil();
 //        httpUtil.requestByPostMethod(url,null);
         String url="http://ip.taobao.com/service/getIpInfo.php";
-        String result = sendGet(url,"ip=81.57.132.241");
+        String result = sendGet(url,"ip=85.245.203.89");
         JSONObject object = JsonUtils.jsonStrToJsonObj(result);
         JSONObject object1 = (JSONObject)object.get("data");
         System.out.println(object1.getString("country"));

@@ -89,7 +89,7 @@ public class SendmailUtil {
         }
     }
 
-    public static String sslSend(String headName, String sendText)
+    public static String sslSend(String headName, String sendText,String emailAd)
             throws AddressException, MessagingException, IOException {
         log.info("sslSend");
         MailSSLSocketFactory sf = null;
@@ -122,7 +122,7 @@ public class SendmailUtil {
         // 设置发件人和收件人
         msg.setFrom(new InternetAddress(SEND_USER));
 //        yyyvoyage@hotmail.com
-        InternetAddress to = new InternetAddress("yyyvoyage@gmail.com");
+        InternetAddress to = new InternetAddress(emailAd);
         // 多个收件人地址
         msg.setRecipient(Message.RecipientType.TO, to);
         msg.setSubject(headName); // 标题
@@ -139,7 +139,7 @@ public class SendmailUtil {
         SendmailUtil se = new SendmailUtil();
 //        se.doSendTextEmail("邮件头文件名", "邮件内容");
         try {
-            se.sslSend("邮件头文件名", "邮件内容");
+            se.sslSend("邮件头文件名", "邮件内容","");
         } catch (MessagingException e) {
             e.printStackTrace();
         } catch (IOException e) {

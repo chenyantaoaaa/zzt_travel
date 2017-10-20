@@ -11,11 +11,11 @@ import java.io.IOException;
  */
 @Component
 public class EmailLogic {
-    public String sendEmail(String emailStr,String title) throws Exception {
+    public String sendEmail(String emailStr,String title,String emailAd) throws Exception {
         SendmailUtil sendmailUtil=new SendmailUtil();
         String returnStr = "";
         try {
-            returnStr = sendmailUtil.sslSend(title,emailStr);
+            returnStr = sendmailUtil.sslSend(title,emailStr,emailAd);
         } catch (MessagingException e) {
             e.printStackTrace();
             returnStr = "fail";
